@@ -26,10 +26,6 @@ app.engine(
 );
 app.set("view engine", "handlebars");
 
-// Routes
-require("./routes/apiRoutes")(app);
-require("./routes/htmlRoutes")(app);
-
 var syncOptions = { force: false };
 
 // If running a test, set syncOptions.force to true
@@ -45,10 +41,9 @@ if (process.env.NODE_ENV === "test") {
 // information, packed into a redirect response that redirects to
 // https://[our-app-name]/auth/redirect
 const googleLoginData = {
-  clientID:
-    "270805595988-eg9psoa21hts52ohjh57mgdo7s4tjch0.apps.googleusercontent.com",
-  clientSecret: "BoV6sGVm0bfb8rgV9DG_Yosc",
-  callbackURL: "/auth/redirect"
+  clientID: process.env.clientID,
+  clientSecret: process.env.clientSecret,
+  callbackURL: process.env.redirect
 };
 
 // Strategy configuration.
@@ -60,7 +55,10 @@ const googleLoginData = {
 passport.use(new GoogleStrategy(googleLoginData, gotProfile));
 
 // pipeline stage that just echos url, for debugging
-app.use("/", printURL);
+app.use("/", function printURL(req, res, next) {
+  console.log(req.url);
+  next();
+});
 
 // Check validity of cookies at the beginning of pipeline
 // Will get cookies out of request, decrypt and check if
@@ -78,83 +76,6 @@ app.use(passport.initialize());
 
 // If there is a valid cookie, will call deserializeUser()
 app.use(passport.session());
-
-// next, handler for url that starts login with Google.
-// The app (in public/login.html) redirects to here (not an AJAX request!)
-// Kicks off login process by telling Browser to redirect to
-// Google. The object { scope: ['profile'] } says to ask Google
-// for their user profile information.
-app.get(
-  "/auth/google",
-  passport.authenticate("google", { scope: ["profile"] })
-);
-// passport.authenticate sends off the 302 response
-// with fancy redirect URL containing request for profile, and
-// client ID string to identify this app.
-
-// Google redirects here after user successfully logs in
-// This route has three handler functions, one run after the other.
-app.get(
-  "/auth/redirect",
-  // for educational purposes
-  function(req, res, next) {
-    console.log("at auth/redirect");
-    next();
-  },
-  // This will issue Server's own HTTPS request to Google
-  // to access the user's profile information with the
-  // temporary key we got in the request.
-  passport.authenticate("google"),
-  // then it will run the "gotProfile" callback function,
-  // set up the cookie, call serialize, whose "done"
-  // will come back here to send back the response
-  // ...with a cookie in it for the Browser!
-  function(req, res) {
-    console.log("Logged in and using cookies!");
-    res.redirect("/user/index.html");
-  }
-);
-
-// static files in /user are only available after login
-app.get(
-  "/user/*",
-  isAuthenticated, // only pass on to following function if
-  // user is logged in
-  // serving files that start with /user from here gets them from ./
-  express.static(".")
-);
-
-// finally, not found...applies to everything
-app.use(fileNotFound);
-
-// middleware functions
-
-// print the url of incoming HTTP request
-function printURL(req, res, next) {
-  console.log(req.url);
-  next();
-}
-
-// function to check whether user is logged when trying to access
-// personal data
-function isAuthenticated(req, res, next) {
-  if (req.user) {
-    console.log("Req.session:", req.session);
-    console.log("Req.user:", req.user);
-    next();
-  } else {
-    res.redirect("/login.html"); // send response telling
-    // Browser to go to login page
-  }
-}
-
-// function for end of server pipeline
-function fileNotFound(req, res) {
-  let url = req.url;
-  res.type("text/plain");
-  res.status(404);
-  res.send("Cannot find " + url);
-}
 
 // Some functions Passport calls, that we can use to specialize.
 // This is where we get to write our own code, not just boilerplate.
@@ -200,6 +121,10 @@ passport.deserializeUser((dbRowID, done) => {
   let userData = { userData: "data from db row goes here" };
   done(null, userData);
 });
+
+// Routes
+require("./routes/apiRoutes")(app);
+require("./routes/htmlRoutes")(app, passport);
 
 // Starting the server, syncing our models ------------------------------------/
 db.sequelize.sync(syncOptions).then(function() {
