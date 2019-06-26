@@ -94,7 +94,7 @@ module.exports = function(app) {
     next();
   });
 
-  app.get("/", isAuthenticated, function(req, res) {
+  app.get("/", function(req, res) {
     db.Example.findAll({}).then(function(dbExamples) {
       res.render("index", {
         msg: "Welcome!",
@@ -155,16 +155,16 @@ module.exports = function(app) {
 
   // function to check whether user is logged in when trying to access
   // personal data
-  function isAuthenticated(req, res, next) {
-    if (req.user) {
-      console.log("Req.session:", req.session);
-      console.log("Req.user:", req.user);
-      next();
-    } else {
-      res.render("login"); // send response telling
-      // Browser to go to login page
-    }
-  }
+  // function isAuthenticated(req, res, next) {
+  //   if (req.user) {
+  //     console.log("Req.session:", req.session);
+  //     console.log("Req.user:", req.user);
+  //     next();
+  //   } else {
+  //     res.render("index"); // send response telling
+  //     // Browser to go to splash page
+  //   }
+  // }
 
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
