@@ -1,4 +1,6 @@
 require("dotenv").config();
+
+// Globals
 var express = require("express");
 var exphbs = require("express-handlebars");
 
@@ -21,10 +23,6 @@ app.engine(
 );
 app.set("view engine", "handlebars");
 
-// Routes
-require("./routes/apiRoutes")(app);
-require("./routes/htmlRoutes")(app);
-
 var syncOptions = { force: false };
 
 // If running a test, set syncOptions.force to true
@@ -32,6 +30,10 @@ var syncOptions = { force: false };
 if (process.env.NODE_ENV === "test") {
   syncOptions.force = true;
 }
+
+// Routes
+require("./routes/apiRoutes")(app);
+require("./routes/htmlRoutes")(app);
 
 // Starting the server, syncing our models ------------------------------------/
 db.sequelize.sync(syncOptions).then(function() {
