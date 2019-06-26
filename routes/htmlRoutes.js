@@ -5,17 +5,6 @@ const passport = require("passport");
 const cookieSession = require("cookie-session");
 const GoogleStrategy = require("passport-google-oauth20");
 
-// Check validity of cookies at the beginning of pipeline
-// Will get cookies out of request, decrypt and check if
-// session is still going on.
-app.use(
-  cookieSession({
-    maxAge: 6 * 60 * 60 * 1000, // Six hours in milliseconds
-    // meaningless random string used by encryption
-    keys: ["hanger waldo mercy dance"]
-  })
-);
-
 // Google login credentials, used when the user contacts
 // Google, to tell them where they are trying to login to, and show
 // that this domain is registered for this service.
@@ -35,12 +24,6 @@ const googleLoginData = {
 // to Google for the user's profile information.
 // It will get used much later in the pipeline.
 passport.use(new GoogleStrategy(googleLoginData, gotProfile));
-
-// Initializes request object for further handling by passport
-app.use(passport.initialize());
-
-// If there is a valid cookie, will call deserializeUser()
-app.use(passport.session());
 
 // Some functions Passport calls, that we can use to specialize.
 // This is where we get to write our own code, not just boilerplate.
@@ -87,13 +70,30 @@ passport.deserializeUser((dbRowID, done) => {
   done(null, userData);
 });
 
-// pipeline stage that just echos url, for debugging
-app.use("/", function printURL(req, res, next) {
-  console.log(req.url);
-  next();
-});
-
 module.exports = function(app) {
+  // Check validity of cookies at the beginning of pipeline
+  // Will get cookies out of request, decrypt and check if
+  // session is still going on.
+  app.use(
+    cookieSession({
+      maxAge: 6 * 60 * 60 * 1000, // Six hours in milliseconds
+      // meaningless random string used by encryption
+      keys: ["hanger waldo mercy dance"]
+    })
+  );
+
+  // Initializes request object for further handling by passport
+  app.use(passport.initialize());
+
+  // If there is a valid cookie, will call deserializeUser()
+  app.use(passport.session());
+
+  // pipeline stage that just echos url, for debugging
+  app.use("/", function printURL(req, res, next) {
+    console.log(req.url);
+    next();
+  });
+
   app.get("/", isAuthenticated, function(req, res) {
     db.Example.findAll({}).then(function(dbExamples) {
       res.render("index", {
