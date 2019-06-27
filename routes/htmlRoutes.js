@@ -166,6 +166,18 @@ module.exports = function(app) {
   //   }
   // }
 
+  app.get("/role", function(req, res) {
+    res.render("role");
+  });
+
+  app.get("/client", function(req, res) {
+    res.render("client");
+  });
+
+  app.get("/stylist", function(req, res) {
+    res.render("stylist");
+  });
+
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
     res.render("404");
