@@ -170,22 +170,22 @@ module.exports = function(app) {
     res.render("role", {
       style: "role.css"
     });
+  });
 
-    app.get("/client", function(req, res) {
-      res.render("client", {
-        style: "client.css"
-      });
-
-      app.get("/stylist", function(req, res) {
-        res.render("stylist", {
-          style: "stylist.css"
-        });
-
-        // Render 404 page for any unmatched routes
-        app.get("*", function(req, res) {
-          res.render("404");
-        });
-      });
+  app.get("/client", function(req, res) {
+    res.render("client", {
+      style: "client.css"
     });
+  });
+
+  app.get("/stylist", function(req, res) {
+    res.render("stylist", {
+      style: "stylist.css"
+    });
+  });
+
+  // Render 404 page for any unmatched routes
+  app.get("*", function(req, res) {
+    res.render("404");
   });
 };
