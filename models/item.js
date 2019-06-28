@@ -1,21 +1,24 @@
 module.exports = function(sequelize, DataTypes) {
-  var Outfit = sequelize.define("Outfit", {
-    stylistId: {
+  var Item = sequelize.define("Item", {
+    outfitId: {
       type: DataTypes.INTEGER
     },
-    stylistName: {
+    name: {
+      type: DataTypes.STRING
+    },
+    category: {
       type: DataTypes.STRING
     },
     price: {
       type: DataTypes.DECIMAL
     },
-    category: {
+    image: {
       type: DataTypes.STRING
     },
-    image: {
+    purchase: {
       type: DataTypes.STRING
     }
   });
 
-  return Outfit;
+  return Item;
 };
