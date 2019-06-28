@@ -1,0 +1,144 @@
+/* The CSS for the background Video */
+
+@font-face {
+  font-family: Raleway;
+  src: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/raleway);
+}
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #000;
+  background-size: cover;
+}
+
+video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  -o-object-position: center;
+  object-position: center;
+}
+
+div#fashion {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+header {
+  position: fixed;
+  width: 100%;
+  text-align: center;
+  color: white;
+  transition: 0.4s;
+}
+
+header:hover {
+  background: rgba(255, 255, 255, 0.8);
+  color: #000;
+}
+
+h1 {
+  font-family: Moderne Sans, sans-serif;
+  text-align: center;
+  font-size: 2rem;
+  width: 100%;
+  letter-spacing: 0.5rem;
+}
+
+nav a {
+  text-decoration: none;
+  color: inherit;
+  padding: 1rem;
+}
+
+h2 {
+  font-family: Century Schoolbook, Century Schoolbook L, Georgia, serif;
+  font-size: 8vmin;
+  text-align: center;
+  margin: 2rem 3rem 0;
+  mix-blend-mode: overlay;
+  color: #fff;
+  font-weight: 100;
+}
+
+/* The CSS for the CLIENT VS STYLIST BUTTON */
+
+.btn {
+  border: 1px solid rgba(248, 248, 248, 0.5);
+  margin: 80px;
+  cursor: pointer;
+  position: relative;
+  padding: 1.4rem 4.2rem;
+  padding-right: 3.1rem;
+  font-size: 1.6rem;
+  color: white;
+  letter-spacing: 1.4rem;
+  text-transform: uppercase;
+  transition: all 600ms cubic-bezier(0.77, 0, 0.175, 1);
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.btn:before,
+.btn:after {
+  content: "";
+  position: absolute;
+  transition: inherit;
+  z-index: -1;
+}
+
+.btn:hover {
+  color: var(--def);
+  transition-delay: 0.6s;
+}
+
+.btn:hover:before {
+  transition-delay: 0s;
+}
+
+.btn:hover:after {
+  background: var(--inv);
+  transition-delay: 0.4s;
+}
+
+/* From Middle */
+
+.from-middle:before {
+  top: 0;
+  left: 50%;
+  height: 100%;
+  width: 0;
+  border: 1px solid var(--inv);
+  border-left: 0;
+  border-right: 0;
+}
+
+.from-middle:after {
+  bottom: 0;
+  left: 0;
+  height: 0;
+  width: 100%;
+  background: var(--inv);
+}
+
+.from-middle:hover:before {
+  left: 0;
+  width: 100%;
+}
+
+.from-middle:hover:after {
+  top: 0;
+  height: 100%;
+}
