@@ -1,13 +1,13 @@
 require("dotenv").config();
 
 // Globals
-var express = require("express");
-var exphbs = require("express-handlebars");
+const express = require("express");
+const exphbs = require("express-handlebars");
 
-var db = require("./models");
+const db = require("./models");
 
-var app = express();
-var PORT = process.env.PORT || 3000;
+const app = express();
+const PORT = process.env.PORT || 3000;
 
 // Middleware
 app.use(express.urlencoded({ extended: false }));
@@ -30,6 +30,10 @@ var syncOptions = { force: false };
 if (process.env.NODE_ENV === "test") {
   syncOptions.force = true;
 }
+
+// Authentication routes
+const authRoutes = require("./routes/authRoutes");
+app.use(authRoutes);
 
 // Routes
 require("./routes/apiRoutes")(app);
