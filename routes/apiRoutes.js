@@ -24,4 +24,11 @@ module.exports = function(app) {
       res.json(dbExample);
     });
   });
+
+  // Create a new outfit
+  app.post("/api/outfit", function(req, res) {
+    db.Outfit.create(req.body).then(function(dbOutfit) {
+      res.json(dbOutfit);
+    });
+  });
 };
