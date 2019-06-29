@@ -1,6 +1,14 @@
+body {
+  font-family: Raleway;
+  src: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/raleway);
+  background-color: white;
+  scroll-margin: 0;
+}
+
 .hero {
   /* Sizing */
-  width: 100vw;
+  margin-left: -165px;
+  margin-right: -165px;
   height: 100vh;
 
   /* Flexbox stuff */
@@ -9,10 +17,10 @@
   align-items: center;
 
   /* Background styles */
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("https://us.123rf.com/450wm/apostrophe/apostrophe1603/apostrophe160300071/54420675-black-background-paper-gray-center-grunge-vintage-black-paint-texture-frame-with-faded-center-vintag.jpg?ver=6");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url("https://www.100interiordesign.com/wp-content/uploads/2015/12/Modern-style-dressing-room-design.jpg");
   background-size: cover;
-  background-position: center center;
+  background-position: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
   margin-bottom: 20%;
@@ -29,7 +37,6 @@
   margin-right: auto;
 
   /* Text styles */
-  color: white;
   text-decoration: none;
   font-size: 1.5em;
 
@@ -43,8 +50,13 @@
   font-size: 200px;
   font-family: Raleway;
   src: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/raleway);
-  color: silver;
+  color: white;
   position: center;
+}
+
+.flip {
+  display: inline-block;
+  transform: rotateY(180deg);
 }
 
 #start {
@@ -54,34 +66,28 @@
 }
 
 .btn {
-  color: silver;
+  color: white;
   font-family: Raleway;
   src: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/raleway);
 }
 
 .btn:hover {
-  color: maroon;
+  color: black;
 }
 
 /* Start of cards */
 
-body {
-  font-family: Raleway;
-  src: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/raleway);
-  background: silver;
-  background-size: cover;
-}
 .box {
   width: 100%;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  grid-gap: 15px;
+  grid-gap: 20px;
 }
 .card {
   position: center;
   width: 300px;
   height: 350px;
-  background: silver;
+  background: whitesmoke;
   border-radius: 4px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
   margin-bottom: 30%;
@@ -95,7 +101,7 @@ body {
   width: 100%;
   height: 100%;
   border-radius: 4px;
-  background: maroon;
+  background: black;
   transition: 0.5s;
   z-index: -1;
 }
@@ -145,7 +151,7 @@ body {
   padding: 0;
   font-weight: 600;
   font-size: 20px;
-  color: maroon;
+  color: black;
   text-transform: uppercase;
 }
 
@@ -155,4 +161,72 @@ body {
   color: #f38695;
   display: block;
   margin-top: 5px;
+}
+
+/* start of footer */
+
+footer {
+  background-color: black;
+  padding: 20px 0px;
+  font-family: Raleway;
+  src: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/raleway);
+}
+
+footer ul {
+  list-style: none;
+  margin: 0 auto;
+  display: inline-block;
+  padding-top: 30px;
+}
+
+footer ul li {
+  float: left;
+}
+
+footer ul li a {
+  color: white;
+  text-align: center;
+  word-spacing: 15px;
+  width: 100%;
+  padding: 30px;
+}
+
+footer ul li a:hover {
+  color: grey;
+  text-decoration: none;
+}
+
+.footer-top {
+  padding-bottom: 20px;
+}
+
+.footer-top .fa {
+  font-size: 18px;
+  color: #fff;
+  padding-right: 10px;
+}
+
+.footer-top a {
+  color: white;
+}
+
+.footer-top .col-lg-2:hover .fa,
+.footer-top .col-lg-2:hover a {
+  color: grey;
+  text-decoration: none;
+}
+
+#top {
+  color: #fff;
+  background: black;
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 40px;
+  height: 20px;
+  width: 40px;
+  right: 30px;
+  position: fixed;
+  border-radius: 3px;
+  text-align: center center;
+  bottom: 350px;
 }
