@@ -166,6 +166,12 @@ module.exports = function(app) {
   //   }
   // }
 
+  app.get("/landing", function(req, res) {
+    res.render("landing", {
+      style: "landing.css"
+    });
+  });
+
   app.get("/role", function(req, res) {
     res.render("role", {
       style: "role.css"
