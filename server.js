@@ -4,6 +4,9 @@ require("dotenv").config();
 const express = require("express");
 const exphbs = require("express-handlebars");
 
+// Setup passport configurations
+require("./config/passport-setup");
+
 const db = require("./models");
 
 const app = express();
