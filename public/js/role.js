@@ -1,6 +1,6 @@
 // Get references to page elements
 var $stylistBtn = $("#stylist-button");
-// var $clientBtn = $("#client-button");
+var $clientBtn = $("#client-button");
 
 // User variables
 var gid;
@@ -40,4 +40,8 @@ $stylistBtn.on("click", function() {
     console.log(newFit);
     location.replace("/stylist/" + newFit.id);
   });
+});
+
+$clientBtn.on("click", function() {
+  location.replace("/client");
 });
