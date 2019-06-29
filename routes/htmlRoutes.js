@@ -184,6 +184,18 @@ module.exports = function(app) {
     });
   });
 
+  // Get target outfit
+  app.get("/stylist/:id", function(req, res) {
+    db.Outfit.findOne({ where: { id: req.params.id } }).then(function(
+      dbOutfit
+    ) {
+      res.render("stylist", {
+        style: "stylist.css",
+        outfit: dbOutfit
+      });
+    });
+  });
+
   app.get("/stylist", function(req, res) {
     res.render("stylist", {
       style: "stylist.css"
