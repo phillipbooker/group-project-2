@@ -33,7 +33,7 @@ if (process.env.NODE_ENV === "test") {
 
 // Authentication routes
 const authRoutes = require("./routes/authRoutes");
-app.use(authRoutes);
+app.use("/auth", authRoutes);
 
 // Routes
 require("./routes/apiRoutes")(app);
