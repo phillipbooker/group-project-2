@@ -6,6 +6,7 @@ var $clientBtn = $("#client-button");
 var gid;
 var gname;
 
+// Placeholders until google auth is implemented
 gid = 125;
 gname = "dev";
 
@@ -20,20 +21,16 @@ var API = {
       url: "api/outfit",
       data: JSON.stringify(outfit)
     });
-  },
-  getOutfit: function(id) {
-    return $.ajax({
-      type: "GET",
-      url: "stylist/" + id
-    });
   }
 };
 
 $stylistBtn.on("click", function() {
-  //create outfit using db
+  // create outfit using db
+  // defaults to wedding since it is the first option in the dropdown
   var outfit = {
     stylistId: gid,
-    stylistName: gname
+    stylistName: gname,
+    category: "wedding"
   };
 
   API.makeOutfit(outfit).then(function(newFit) {

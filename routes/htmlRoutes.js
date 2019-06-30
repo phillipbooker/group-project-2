@@ -184,14 +184,17 @@ module.exports = function(app) {
     });
   });
 
-  // Get target outfit
+  // Get target outfit and items
   app.get("/stylist/:id", function(req, res) {
-    db.Outfit.findOne({ where: { id: req.params.id } }).then(function(
-      dbOutfit
-    ) {
-      res.render("stylist", {
-        style: "stylist.css",
-        outfit: dbOutfit
+    var outfitId = req.params.id;
+
+    db.Outfit.findOne({ where: { id: outfitId } }).then(function(dbOutfit) {
+      db.Item.findAll({ where: { outfitId } }).then(function(dbItems) {
+        res.render("stylist", {
+          style: "stylist.css",
+          outfit: dbOutfit,
+          items: dbItems
+        });
       });
     });
   });
