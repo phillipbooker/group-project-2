@@ -7,6 +7,7 @@ require("./config/passport-setup");
 const express = require("express");
 const exphbs = require("express-handlebars");
 const cookieSession = require("cookie-session");
+const passport = require("passport");
 
 const db = require("./models");
 
@@ -23,7 +24,7 @@ app.use(
     keys: [process.env.cookieKey]
   })
 );
-app.use(passport.intitialize());
+app.use(passport.initialize());
 app.use(passport.session());
 
 // Handlebars
