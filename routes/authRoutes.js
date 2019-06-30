@@ -14,6 +14,26 @@ router.get("/logout", (req, res) => {
 });
 
 // auth with google
-router.get("/google", passport.authenticate("google", { scope: ["profile"] }));
+router.get(
+  "/google",
+  (req, res, next) => {
+    console.log("in here");
+    next();
+  },
+  passport.authenticate("google", {
+    scope: ["profile"],
+    prompt: "select_account"
+  })
+);
+
+// router.get("/google/redirect", passport.authenticate("google"), function(
+//   req,
+//   res
+// ) {
+//   // Successful authentication, redirect to role page
+//   res.render("role", {
+//     style: "role.css"
+//   });
+// });
 
 module.exports = router;
