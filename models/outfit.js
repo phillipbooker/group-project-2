@@ -1,7 +1,7 @@
 module.exports = function(sequelize, DataTypes) {
   var Outfit = sequelize.define("Outfit", {
     stylistId: {
-      type: DataTypes.INTEGER
+      type: DataTypes.STRING
     },
     stylistName: {
       type: DataTypes.STRING

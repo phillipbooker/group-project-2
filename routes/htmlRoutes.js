@@ -27,10 +27,12 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/role", function(req, res) {
+  app.get("/role", isAuthenticated, function(req, res) {
     res.render("role", {
-      style: "role.css"
+      style: "role.css",
+      user: req.user
     });
+    console.log(req.user);
   });
 
   app.get("/client", function(req, res) {
@@ -67,11 +69,11 @@ module.exports = function(app) {
 };
 
 // function to check whether user is logged in when trying to access personal data
-// function isAuthenticated(req, res, next) {
-//   if (req.user) {
-//     console.log("req.user:", req.user);
-//     next(); // go on to next middleware in the pipeline
-//   } else {
-//     res.render("index"); // render home page template
-//   }
-// }
+function isAuthenticated(req, res, next) {
+  if (req.user) {
+    console.log("req.user:", req.user);
+    next(); // go on to next middleware in the pipeline
+  } else {
+    res.redirect("/");
+  }
+}
