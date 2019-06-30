@@ -8,8 +8,8 @@ module.exports = function(app) {
 
   // auth logout
   app.get("/auth/logout", (req, res) => {
-    // handle with passport
-    res.send("logging out");
+    req.logout();
+    res.redirect("/");
   });
 
   // auth with google
