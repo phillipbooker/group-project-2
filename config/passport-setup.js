@@ -28,7 +28,6 @@ passport.use(
     },
     (accessToken, refreshToken, profile, done) => {
       // passport callback function
-      console.log(profile);
       db.User.findOrCreate({
         where: { gid: profile.id, gname: profile.displayName }
       }).then(([user, created]) => {
