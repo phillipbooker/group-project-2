@@ -1,7 +1,7 @@
 module.exports = function(sequelize, DataTypes) {
   var Item = sequelize.define("Item", {
     outfitId: {
-      type: DataTypes.INTEGER
+      type: DataTypes.STRING
     },
     name: {
       type: DataTypes.STRING

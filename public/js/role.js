@@ -2,14 +2,6 @@
 var $stylistBtn = $("#stylist-button");
 var $clientBtn = $("#client-button");
 
-// User variables
-var gid;
-var gname;
-
-// Placeholders until google auth is implemented
-gid = 125;
-gname = "dev";
-
 // The API object contains methods for each kind of request we'll make
 var API = {
   makeOutfit: function(outfit) {
@@ -28,7 +20,7 @@ $stylistBtn.on("click", function() {
   // create outfit using db
   // defaults to wedding since it is the first option in the dropdown
   var outfit = {
-    stylistId: gid,
+    stylistId: userId,
     stylistName: gname,
     category: "wedding"
   };
