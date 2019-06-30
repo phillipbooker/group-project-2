@@ -1,18 +1,31 @@
 require("dotenv").config();
 
+// Load passport configurations
+require("./config/passport-setup");
+
 // Globals
-var express = require("express");
-var exphbs = require("express-handlebars");
+const express = require("express");
+const exphbs = require("express-handlebars");
+const cookieSession = require("cookie-session");
+const passport = require("passport");
 
-var db = require("./models");
+const db = require("./models");
 
-var app = express();
-var PORT = process.env.PORT || 3000;
+const app = express();
+const PORT = process.env.PORT || 3000;
 
 // Middleware
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static("public"));
+app.use(
+  cookieSession({
+    maxAge: 24 * 60 * 60 * 1000, // 24-hour session
+    keys: [process.env.cookieKey]
+  })
+);
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Handlebars
 app.engine(
@@ -32,6 +45,7 @@ if (process.env.NODE_ENV === "test") {
 }
 
 // Routes
+require("./routes/authRoutes")(app);
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
 
