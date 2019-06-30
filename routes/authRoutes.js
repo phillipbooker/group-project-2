@@ -26,7 +26,7 @@ module.exports = function(app) {
     "/auth/google/redirect",
     passport.authenticate("google"),
     (req, res) => {
-      res.send("You reached the callback URI");
+      res.redirect("/role");
     }
   );
 };
