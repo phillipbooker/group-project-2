@@ -34,11 +34,8 @@ if (process.env.NODE_ENV === "test") {
   syncOptions.force = true;
 }
 
-// Authentication routes
-const authRoutes = require("./routes/authRoutes");
-app.use("/auth", authRoutes);
-
 // Routes
+require("./routes/authRoutes")(app);
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
 

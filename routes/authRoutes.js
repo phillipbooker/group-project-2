@@ -3,23 +3,19 @@ const router = express.Router();
 const passport = require("passport");
 
 // auth login
-router.get("/login", (req, res) => {
+router.get("/auth/login", (req, res) => {
   res.render("login");
 });
 
 // auth logout
-router.get("/logout", (req, res) => {
+router.get("/auth/logout", (req, res) => {
   // handle with passport
   res.send("logging out");
 });
 
 // auth with google
 router.get(
-  "/google",
-  (req, res, next) => {
-    console.log("in here");
-    next();
-  },
+  "/auth/google",
   passport.authenticate("google", {
     scope: ["profile"],
     prompt: "select_account"
@@ -27,8 +23,12 @@ router.get(
 );
 
 // callback route for google to redirect to
-router.get("/google/redirect", passport.authenticate("google"), (req, res) => {
-  res.send("You reached the callback URI");
-});
+router.get(
+  "/auth/google/redirect",
+  passport.authenticate("google"),
+  (req, res) => {
+    res.send("You reached the callback URI");
+  }
+);
 
 module.exports = router;
