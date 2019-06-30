@@ -51,15 +51,12 @@ module.exports = function(app) {
   });
 };
 
-// function to check whether user is logged in when trying to access
-//   personal data
+// function to check whether user is logged in when trying to access personal data
 // function isAuthenticated(req, res, next) {
 //   if (req.user) {
-//     console.log("Req.session:", req.session);
-//     console.log("Req.user:", req.user);
-//     next();
+//     console.log("req.user:", req.user);
+//     next(); // go on to next middleware in the pipeline
 //   } else {
-//     res.render("index"); // send response telling
-//     // Browser to go to splash page
+//     res.render("index"); // render home page template
 //   }
 // }

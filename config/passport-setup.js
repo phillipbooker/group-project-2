@@ -13,8 +13,8 @@ passport.serializeUser((user, done) => {
 
 passport.deserializeUser((userId, done) => {
   db.User.findOne({ where: { id: userId } }).then(user => {
-    console.log("result of findOne: ", user);
-    done(null, user);
+    let userData = user.get({ plain: true });
+    done(null, userData);
   });
 });
 
@@ -33,7 +33,7 @@ passport.use(
       }).then(([user, created]) => {
         let userData = user.get({ plain: true });
         console.log(userData);
-        console.log("created: ", created);
+        console.log("created:", created);
         return done(null, userData);
       });
     }
