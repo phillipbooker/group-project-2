@@ -1,50 +1,96 @@
-<div id="home">
-  <div class="container">
-    <div class="row text-center">
-        <div class="col-md-12 text-center">
-            <a href="/role" class="btn btn-primary">Get Started</a>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+
+      <div class="hero">
+        <div class="hero-inner text-center">
+          <h1>D <span class="flip">R</span> E S</h1>
+          <a href="/role" class="btn" id="start" style="border:1px solid white; background-color: transparent;">Get
+            Started</a>
         </div>
-    </div>
-  </div>
-  <div class="container">
-    <div class="row">
-      <div class="col-8 offset-2">
-        <h1>{{msg}}</h1>
-        <div class="row">
-          <div class="col-6">
-            <h2>This is our Home Page!</h2>
+      </div>
+
+
+      <div class="box">
+        <div class="card">
+          <div class="imgBx">
+            <img
+              src="https://images.unsplash.com/photo-1532123675048-773bd75df1b4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
+              alt="images">
           </div>
-          <div class="col-5 offset-1">
-            <a href="/auth/google">Login With Google</a>
+          <div class="details">
+            <h2><br>DRES<br><span></span></h2>
           </div>
         </div>
 
-        <form class="clearfix mb-4" action="POST">
-          <div class="form-group">
-            <label for="example-text">Example Text</label>
-            <input type="text" id="example-text" class="form-control" aria-describedby="example-text"
-              placeholder="Enter Example Text">
+        <div class="card">
+          <div class="imgBx">
+            <img
+              src="https://images.unsplash.com/photo-1549417229-aa67d3263c09?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
+              alt="images">
           </div>
-          <div class="form-group">
-            <label for="example-description">Example Description</label>
-            <textarea class="form-control" id="example-description" aria-describedby="example-description"
-              placeholder="Enter Example Description"></textarea>
+          <div class="details">
+            <h2><br>TO<br><span></span></h2>
           </div>
-          <button id="submit" class="btn btn-primary float-right">Submit</button>
-        </form>
-        <h3>Examples:</h3>
-        <ul id="example-list" class="list-group">
-          {{#each examples}}
-          <li data-id="{{this.id}}" class="list-group-item">
-            <a href="example/{{this.id}}">{{this.text}}</a>
-            <button class="btn btn-danger float-right delete">ｘ</button>
-          </li>
-          {{/each}}
-        </ul>
+        </div>
+
+        <div class="card">
+          <div class="imgBx">
+            <img
+              src="https://images.unsplash.com/photo-1548094878-84ced0f6896d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
+              alt="images">
+          </div>
+          <div class="details">
+            <h2><br>IMPRESS<br><span></span></h2>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
 </div>
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="/js/index.js"></script>
+<footer>
+  <div class="footer-top">
+    <div class="container">
+      <ul class="menu">
+
+        <li>
+          <a href="/">D <span class="flip">R</span> E S</a>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+  </div>
+
+  <div class="container" style="border-top:1px solid grey;">
+    <div class="row text-center">
+      <div class="col-lg-12">
+        <ul class="menu">
+
+          <li>
+            <a href="#">Home</a>
+          </li>
+
+          <li>
+            <a href="#">About</a>
+          </li>
+
+          <li>
+            <a href="#">Blog</a>
+          </li>
+
+          <li>
+            <a href="#">Gallery</a>
+          </li>
+
+          <li>
+            <a href="#">Contact</a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
