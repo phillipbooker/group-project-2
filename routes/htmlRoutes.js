@@ -5,7 +5,8 @@ module.exports = function(app) {
     db.Example.findAll({}).then(function(dbExamples) {
       res.render("index", {
         msg: "Welcome!",
-        examples: dbExamples
+        examples: dbExamples,
+        style: "landing.css"
       });
     });
   });
@@ -18,12 +19,6 @@ module.exports = function(app) {
       res.render("example", {
         example: dbExample
       });
-    });
-  });
-
-  app.get("/landing", function(req, res) {
-    res.render("landing", {
-      style: "landing.css"
     });
   });
 
@@ -74,6 +69,6 @@ function isAuthenticated(req, res, next) {
     console.log("req.user:", req.user);
     next(); // go on to next middleware in the pipeline
   } else {
-    res.redirect("/");
+    res.redirect("/auth/google");
   }
 }
