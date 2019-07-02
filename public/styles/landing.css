@@ -39,6 +39,7 @@ h1 {
   position: center;
 }
 
+/* Loren use this for the "R" being flipped */
 .flip {
   display: inline-block;
   transform: rotateY(180deg);
