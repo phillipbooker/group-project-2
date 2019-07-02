@@ -28,7 +28,6 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 if (process.env.PORT) {
-  console.log("in here");
   app.use(enforce.HTTPS({ trustProtoHeader: true }));
 }
 

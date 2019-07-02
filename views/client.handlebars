@@ -1,3 +1,4 @@
+<a href="/" class="btn">Home</a>
 <form>
   <div class="form-group">
     <label for="category">Choose outfit category</label>
@@ -15,4 +16,25 @@
 
   <button type="submit" class="btn btn-primary">Search for outfit</button>
 </form>
-<a href="/" class="btn">Home</a>
+
+<div class="search-dump"></div>
+
+<script>
+  $("form").on("submit", function (event) {
+    event.preventDefault();
+    let $category = $("#category").val();
+    let $price = $("#price").val();
+    console.log($category);
+    console.log($price);
+    $.get(
+      "/api/search/?" +
+      $.param({
+        category: $category,
+        price: $price
+      }), function (data) {
+        console.log("data returned: " + JSON.stringify(data));
+        $(".search-dump").append(JSON.stringify(data));
+      }
+    );
+  });
+</script>
