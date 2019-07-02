@@ -66,7 +66,6 @@ module.exports = function(app) {
 // function to check whether user is logged in when trying to access personal data
 function isAuthenticated(req, res, next) {
   if (req.user) {
-    console.log("req.user:", req.user);
     next(); // go on to next middleware in the pipeline
   } else {
     res.redirect("/auth/google");
