@@ -27,7 +27,9 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(enforce.HTTPS({ trustProtoHeader: true }));
+if (process.env.PORT) {
+  app.use(enforce.HTTPS({ trustProtoHeader: true }));
+}
 
 // Handlebars
 app.engine(
