@@ -12,10 +12,14 @@ passport.serializeUser((user, done) => {
 });
 
 passport.deserializeUser((userId, done) => {
-  db.User.findOne({ where: { id: userId } }).then(user => {
-    let userData = user.get({ plain: true });
-    done(null, userData);
-  });
+  db.User.findOne({ where: { id: userId } })
+    .then(user => {
+      let userData = user.get({ plain: true });
+      done(null, userData);
+    })
+    .catch(err => {
+      done(err);
+    });
 });
 
 passport.use(

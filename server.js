@@ -49,6 +49,15 @@ require("./routes/authRoutes")(app);
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
 
+// handle any asynchronous error during express pipeline
+app.use(function(err, req, res, next) {
+  if (res.headersSent) {
+    return next(err);
+  }
+  req.logout();
+  res.status(500).redirect("/");
+});
+
 // Starting the server, syncing our models ------------------------------------/
 db.sequelize.sync(syncOptions).then(function() {
   app.listen(PORT, function() {
