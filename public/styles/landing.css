@@ -5,34 +5,13 @@ body {
   scroll-margin: 0;
 }
 
-.hero {
-  /* Sizing */
-  margin-left: -165px;
-  margin-right: -165px;
-  height: 100vh;
-
-  /* Flexbox stuff */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  /* Background styles */
-  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-    url("https://www.100interiordesign.com/wp-content/uploads/2015/12/Modern-style-dressing-room-design.jpg");
-  background-size: cover;
-  background-position: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  margin-bottom: 20%;
-}
-
-.hero .btn {
+.btn {
   /* Positioning and sizing */
   display: block;
   width: 200px;
 
   /* Padding and margins */
-  margin-top: 50px;
+  margin-top: 20px;
   margin-left: auto;
   margin-right: auto;
 
@@ -43,10 +22,16 @@ body {
   /* Border styles */
   border: 3px solid white;
   border-radius: 20px;
+
+  color: white;
+  font-family: Raleway;
+  src: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/raleway);
+
+  font-size: 30px;
 }
 
-.hero h1 {
-  margin-top: 30%;
+h1 {
+  margin-top: 140px;
   font-size: 200px;
   font-family: Raleway;
   src: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/raleway);
@@ -54,113 +39,118 @@ body {
   position: center;
 }
 
+/* Loren use this for the "R" being flipped */
 .flip {
   display: inline-block;
   transform: rotateY(180deg);
-}
-
-#start {
-  margin-top: 5%;
-  margin-bottom: 45%;
-  font-size: 30px;
-}
-
-.btn {
-  color: white;
-  font-family: Raleway;
-  src: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/raleway);
 }
 
 .btn:hover {
   color: black;
 }
 
-/* Start of cards */
-
-.box {
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  grid-gap: 20px;
-}
-.card {
-  position: center;
-  width: 300px;
-  height: 350px;
-  background: whitesmoke;
-  border-radius: 4px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-  margin-bottom: 30%;
-}
-.card:before,
-.card:after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 4px;
-  background: black;
-  transition: 0.5s;
-  z-index: -1;
-}
-.card:hover:before {
-  transform: rotate(20deg);
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
-}
-.card:hover:after {
-  transform: rotate(10deg);
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
-}
-.card .imgBx {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  bottom: 10px;
-  right: 10px;
-  background: #222;
-  transition: 0.5s;
-  z-index: 1;
+.jumbotron {
+  color: white;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url("https://www.100interiordesign.com/wp-content/uploads/2015/12/Modern-style-dressing-room-design.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
 }
 
-.card:hover .imgBx {
-  bottom: 80px;
-}
+/* CARDS */
 
-.card .imgBx img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.card .details {
-  position: absolute;
-  left: 10px;
-  right: 10px;
-  bottom: 10px;
-  height: 60px;
-  text-align: center;
-}
-
-.card .details h2 {
+* {
   margin: 0;
   padding: 0;
-  font-weight: 600;
-  font-size: 20px;
-  color: black;
-  text-transform: uppercase;
+  box-sizing: border-box;
 }
 
-.card .details h2 span {
-  font-weight: 500;
-  font-size: 16px;
-  color: #f38695;
+.input {
+  position: absolute;
+}
+
+.scene {
+  width: 1440px;
+  max-width: 100%;
+  min-height: 100vh;
+  margin: auto;
+  padding: 40px 30px;
+}
+
+.card-wrap {
   display: block;
-  margin-top: 5px;
+  width: 300px;
+  max-width: 100%;
+  height: 400px;
+  margin: 0 auto;
+  margin-bottom: 15px;
+}
+
+.card,
+.front,
+.back,
+.card-photo {
+  width: 100%;
+  height: 100%;
+}
+
+.card-face {
+  position: absolute;
+  backface-visibility: hidden;
+}
+
+.card {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 1s, box-shadow 0.4s;
+  box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.302),
+    0 1px 3px 1px rgba(60, 64, 67, 0.149);
+  border-radius: 10px;
+}
+
+.card-photo {
+  object-fit: none;
+  border-radius: 10px;
+}
+
+.card:hover {
+  box-shadow: 0 1px 3px 0 rgba(60, 64, 67, 0.302),
+    0 4px 8px 3px rgba(60, 64, 67, 0.149);
+}
+
+.back {
+  background-color: white;
+  transform: rotateY(180deg);
+  text-align: center;
+  color: darkgray;
+  border-radius: 10px;
+  font-family: "Raleway", sans-serif;
+  font-weight: 600;
+}
+
+.back p {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.flipcard {
+  opacity: 0;
+}
+
+input:checked + .card {
+  transform: rotateY(180deg);
+}
+
+@media screen and (min-width: 960px) {
+  .scene {
+    display: flex;
+    justify-content: space-around;
+  }
 }
 
 /* start of footer */
@@ -229,4 +219,87 @@ footer ul li a:hover {
   border-radius: 3px;
   text-align: center center;
   bottom: 350px;
+}
+
+/* For desktop: */
+.col-1 {
+  width: 8.33%;
+}
+.col-2 {
+  width: 16.66%;
+}
+.col-3 {
+  width: 25%;
+}
+.col-4 {
+  width: 33.33%;
+}
+.col-5 {
+  width: 41.66%;
+}
+.col-6 {
+  width: 50%;
+}
+.col-7 {
+  width: 58.33%;
+}
+.col-8 {
+  width: 66.66%;
+}
+.col-9 {
+  width: 75%;
+}
+.col-10 {
+  width: 83.33%;
+}
+.col-11 {
+  width: 91.66%;
+}
+.col-12 {
+  width: 100%;
+}
+
+@media only screen and (max-width: 775px) {
+  /* For mobile phones: */
+  [class*="col-"] {
+    width: 100%;
+  }
+
+  h1 {
+    font-size: 500%;
+  }
+
+  .btn {
+    size: 100%;
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  /* For mobile phones: */
+  [class*="col-"] {
+    width: 100%;
+  }
+
+  h1 {
+    font-size: 500%;
+  }
+
+  .btn {
+    size: 100%;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  /* For mobile phones: */
+  [class*="col-"] {
+    width: 100%;
+  }
+
+  h1 {
+    font-size: 500%;
+  }
+
+  .btn {
+    size: 100%;
+  }
 }
