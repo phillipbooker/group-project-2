@@ -8,7 +8,7 @@ const express = require("express");
 const exphbs = require("express-handlebars");
 const cookieSession = require("cookie-session");
 const passport = require("passport");
-const enforce = require("express-sslify");
+// const enforce = require("express-sslify");
 
 const db = require("./models");
 
@@ -27,7 +27,7 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(enforce.HTTPS({ trustProtoHeader: true }));
+// app.use(enforce.HTTPS({ trustProtoHeader: true }));
 
 // Handlebars
 app.engine(
