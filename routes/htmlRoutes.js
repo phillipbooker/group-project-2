@@ -27,7 +27,6 @@ module.exports = function(app) {
       style: "role.css",
       user: req.user
     });
-    console.log(req.user);
   });
 
   app.get("/client", function(req, res) {
