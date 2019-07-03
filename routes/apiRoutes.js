@@ -70,4 +70,15 @@ module.exports = function(app) {
       res.json(results);
     });
   });
+
+  app.get("/api/getItems", function(req, res) {
+    console.log(req.params);
+    db.Item.findAll({
+      where: {
+        outfitId: req.query.id
+      }
+    }).then(results => {
+      res.json(results);
+    });
+  });
 };

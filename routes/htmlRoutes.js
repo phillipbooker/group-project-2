@@ -29,14 +29,14 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/client", function(req, res) {
+  app.get("/client", isAuthenticated, function(req, res) {
     res.render("client", {
       style: "client.css"
     });
   });
 
   // Get target outfit and items
-  app.get("/stylist/:id", function(req, res) {
+  app.get("/stylist/:id", isAuthenticated, function(req, res) {
     var outfitId = req.params.id;
 
     db.Outfit.findOne({ where: { id: outfitId } }).then(function(dbOutfit) {
@@ -50,9 +50,16 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/stylist", function(req, res) {
+  app.get("/stylist", isAuthenticated, function(req, res) {
     res.render("stylist", {
       style: "stylist.css"
+    });
+  });
+
+  app.get("/outfits/:id", isAuthenticated, function(req, res) {
+    res.render("outfit", {
+      style: "client.css",
+      id: req.params.id
     });
   });
 
@@ -67,6 +74,10 @@ function isAuthenticated(req, res, next) {
   if (req.user) {
     next(); // go on to next middleware in the pipeline
   } else {
-    res.redirect("/auth/google");
+    if (req.url === "/role") {
+      res.redirect("/auth/google");
+    } else {
+      res.redirect("/");
+    }
   }
 }
