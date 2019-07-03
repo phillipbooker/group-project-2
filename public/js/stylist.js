@@ -45,19 +45,25 @@ $outfitBtn.on("click", function(e) {
   var newImage = $outfitImage.val().trim();
   var newPrice = parseFloat($outfitPrice.val().trim());
 
-  var newOutfit = {
-    id: outfitId,
-    category: newCategory,
-    image: newImage,
-    price: newPrice
-  };
+  if (newImage === "" || newPrice === "") {
+    alert("Please fill out all fields for this outfit!");
+  } else if (isNaN(newPrice) || newPrice < 0) {
+    alert("Please enter a valid number for 'Price'.");
+  } else {
+    var newOutfit = {
+      id: outfitId,
+      category: newCategory,
+      image: newImage,
+      price: newPrice
+    };
 
-  console.log(newOutfit);
+    console.log(newOutfit);
 
-  API.updateOutfit(newOutfit).then(function() {
-    // refresh outfit
-    location.reload();
-  });
+    API.updateOutfit(newOutfit).then(function() {
+      // refresh outfit
+      location.reload();
+    });
+  }
 });
 
 $itemBtn.on("click", function(e) {
@@ -69,18 +75,29 @@ $itemBtn.on("click", function(e) {
   var newImage = $itemImage.val().trim();
   var newPurchase = $itemPurchase.val().trim();
 
-  var newItem = {
-    outfitId: outfitId,
-    name: newName,
-    price: newPrice,
-    image: newImage,
-    purchase: newPurchase
-  };
+  if (
+    newName === "" ||
+    newPrice === "" ||
+    newImage === "" ||
+    newPurchase === ""
+  ) {
+    alert("Please fill out all fields for this item!");
+  } else if (isNaN(newPrice) || newPrice < 0) {
+    alert("Please enter a valid number for 'Price'.");
+  } else {
+    var newItem = {
+      outfitId: outfitId,
+      name: newName,
+      price: newPrice,
+      image: newImage,
+      purchase: newPurchase
+    };
 
-  console.log(newItem);
+    console.log(newItem);
 
-  API.makeItem(newItem).then(function() {
-    // refresh outfit
-    location.reload();
-  });
+    API.makeItem(newItem).then(function() {
+      // refresh outfit
+      location.reload();
+    });
+  }
 });
