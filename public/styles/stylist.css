@@ -1,3 +1,440 @@
-body {
-  background: yellow;
+/*!
+ *  Font Awesome 4.5.0 by @davegandy - http://fontawesome.io - @fontawesome
+ *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
+ */
+/* FONT PATH
+ * -------------------------- */
+
+body,
+html {
+  height: 100%;
+}
+
+@font-face {
+  font-family: "FontAwesome";
+  src: url("../fonts/fontawesome-webfont.eot?v=4.5.0");
+  src: url("../fonts/fontawesome-webfont.eot?#iefix&v=4.5.0")
+      format("embedded-opentype"),
+    url("../fonts/fontawesome-webfont.woff2?v=4.5.0") format("woff2"),
+    url("../fonts/fontawesome-webfont.woff?v=4.5.0") format("woff"),
+    url("../fonts/fontawesome-webfont.ttf?v=4.5.0") format("truetype"),
+    url("../fonts/fontawesome-webfont.svg?v=4.5.0#fontawesomeregular")
+      format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+.fa {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* The CSS for the Header effects and positioning */
+header {
+  position: fixed;
+  width: 100%;
+  text-align: center;
+  color: white;
+  transition: 0.4s;
+}
+
+header:hover {
+  background: rgba(255, 255, 255, 0.4);
+  color: #000;
+}
+
+h1 {
+  font-size: 4rem;
+}
+
+.flip {
+  display: inline-block;
+  transform: rotateY(180deg);
+}
+/* makes the font 33% larger relative to the icon container */
+.fa-lg {
+  font-size: 1.33333333em;
+  line-height: 0.75em;
+  vertical-align: -15%;
+}
+.fa-2x {
+  font-size: 2em;
+}
+.fa-3x {
+  font-size: 3em;
+}
+.fa-4x {
+  font-size: 4em;
+}
+.fa-5x {
+  font-size: 5em;
+}
+.fa-fw {
+  width: 1.28571429em;
+  text-align: center;
+}
+.fa-ul {
+  padding-left: 0;
+  margin-left: 2.14285714em;
+  list-style-type: none;
+}
+.fa-ul > li {
+  position: relative;
+}
+.fa-li {
+  position: absolute;
+  left: -2.14285714em;
+  width: 2.14285714em;
+  top: 0.14285714em;
+  text-align: center;
+}
+.fa-li.fa-lg {
+  left: -1.85714286em;
+}
+.fa-border {
+  padding: 0.2em 0.25em 0.15em;
+  border: solid 0.08em #eeeeee;
+  border-radius: 0.1em;
+}
+.fa-pull-left {
+  float: left;
+}
+.fa-pull-right {
+  float: right;
+}
+.fa.fa-pull-left {
+  margin-right: 0.3em;
+}
+.fa.fa-pull-right {
+  margin-left: 0.3em;
+}
+/* Deprecated as of 4.4.0 */
+.pull-right {
+  float: right;
+}
+.pull-left {
+  float: left;
+}
+.fa.pull-left {
+  margin-right: 0.3em;
+}
+.fa.pull-right {
+  margin-left: 0.3em;
+}
+.fa-spin {
+  -webkit-animation: fa-spin 2s infinite linear;
+  animation: fa-spin 2s infinite linear;
+}
+.fa-pulse {
+  -webkit-animation: fa-spin 1s infinite steps(8);
+  animation: fa-spin 1s infinite steps(8);
+}
+@-webkit-keyframes fa-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+@keyframes fa-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+.fa-rotate-90 {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+  -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+.fa-rotate-180 {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+.fa-rotate-270 {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+  -webkit-transform: rotate(270deg);
+  -ms-transform: rotate(270deg);
+  transform: rotate(270deg);
+}
+.fa-flip-horizontal {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1);
+  -webkit-transform: scale(-1, 1);
+  -ms-transform: scale(-1, 1);
+  transform: scale(-1, 1);
+}
+.fa-flip-vertical {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1);
+  -webkit-transform: scale(1, -1);
+  -ms-transform: scale(1, -1);
+  transform: scale(1, -1);
+}
+:root .fa-rotate-90,
+:root .fa-rotate-180,
+:root .fa-rotate-270,
+:root .fa-flip-horizontal,
+:root .fa-flip-vertical {
+  filter: none;
+}
+.fa-stack {
+  position: relative;
+  display: inline-block;
+  width: 2em;
+  height: 2em;
+  line-height: 2em;
+  vertical-align: middle;
+}
+.fa-stack-1x,
+.fa-stack-2x {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+.fa-stack-1x {
+  line-height: inherit;
+}
+.fa-stack-2x {
+  font-size: 2em;
+}
+.fa-inverse {
+  color: #ffffff;
+}
+
+/* The CSS for the size parameters for the main header gif */
+
+.gif-header {
+  align-content: center;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: 0px;
+  margin-left: 0px;
+}
+
+/* Stylist Message */
+
+.stylist-intro {
+  font-family: "Open Sans", sans-serif;
+  font-size: 2.4rem;
+  letter-spacing: 2px;
+  font-weight: normal;
+  text-align: center;
+  padding-top: 40px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+.stylist-outro {
+  font-family: "Questrial", sans-serif;
+  font-size: 1rem;
+  font-weight: normal;
+  text-align: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  letter-spacing: 0px;
+  border-spacing: 100px;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-color: rgb(54, 54, 54);
+}
+
+/* The CSS for the Stylist Name */
+
+.stylist-name {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.3rem;
+}
+
+.main_image__img-2 {
+}
+
+.form-group {
+  text-transform: uppercase;
+  transition: all 600ms cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+/* CSS for Input Buttons */
+
+.btn-primary {
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  background: rgba(248, 248, 248, 0.1);
+  margin: 100px;
+  cursor: pointer;
+  position: center;
+  padding: 1.4rem 4.2rem;
+  padding-right: 3.1rem;
+  font-size: 1.2rem;
+  color: rgb(0, 0, 0);
+  letter-spacing: 1.4rem;
+  text-transform: uppercase;
+  transition: all 600ms cubic-bezier(0.77, 0, 0.175, 1);
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+/* start of footer */
+
+footer {
+  background-color: black;
+  padding: 20px 0px;
+  font-family: Raleway;
+  src: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/raleway);
+}
+
+footer ul {
+  list-style: none;
+  margin: 0 auto;
+  display: inline-block;
+  padding-top: 30px;
+}
+
+footer ul li {
+  float: left;
+}
+
+footer ul li a {
+  color: white;
+  text-align: center;
+  word-spacing: 15px;
+  width: 100%;
+  padding: 30px;
+}
+
+footer ul li a:hover {
+  color: grey;
+  text-decoration: none;
+}
+
+.footer-top {
+  padding-bottom: 20px;
+}
+
+.footer-top .fa {
+  font-size: 18px;
+  color: #fff;
+  padding-right: 10px;
+}
+
+.footer-top a {
+  color: white;
+}
+
+.footer-top .col-lg-2:hover .fa,
+.footer-top .col-lg-2:hover a {
+  color: grey;
+  text-decoration: none;
+}
+
+#top {
+  color: #fff;
+  background: black;
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 40px;
+  height: 20px;
+  width: 40px;
+  right: 30px;
+  position: fixed;
+  border-radius: 3px;
+  text-align: center center;
+  bottom: 350px;
+}
+
+/* For desktop: */
+.col-1 {
+  width: 8.33%;
+}
+.col-2 {
+  width: 16.66%;
+}
+.col-3 {
+  width: 25%;
+}
+.col-4 {
+  width: 33.33%;
+}
+.col-5 {
+  width: 41.66%;
+}
+.col-6 {
+  width: 50%;
+}
+.col-7 {
+  width: 58.33%;
+}
+.col-8 {
+  width: 66.66%;
+}
+.col-9 {
+  width: 75%;
+}
+.col-10 {
+  width: 83.33%;
+}
+.col-11 {
+  width: 91.66%;
+}
+.col-12 {
+  width: 100%;
+}
+
+@media only screen and (max-width: 775px) {
+  /* For mobile phones: */
+  [class*="col-"] {
+    width: 100%;
+  }
+
+  h1 {
+    font-size: 500%;
+  }
+
+  .btn {
+    size: 100%;
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  /* For mobile phones: */
+  [class*="col-"] {
+    width: 100%;
+  }
+
+  h1 {
+    font-size: 500%;
+  }
+
+  .btn {
+    size: 100%;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  /* For mobile phones: */
+  [class*="col-"] {
+    width: 100%;
+  }
+
+  h1 {
+    font-size: 500%;
+  }
+
+  .btn {
+    size: 100%;
+  }
 }

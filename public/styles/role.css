@@ -46,6 +46,10 @@ header:hover {
   color: #000;
 }
 
+.flip {
+  display: inline-block;
+  transform: rotateY(180deg);
+}
 h1 {
   font-family: Moderne Sans, sans-serif;
   text-align: center;
