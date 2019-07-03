@@ -36,7 +36,7 @@
         $(".results").append("<hr>");
         let cardDeck = $("<div class='card-deck'>");
         for (let i = 0; i < outfits.length; i++) {
-          let card = $("<div class='card' data-link='/outfits/?outfitId=" + outfits[i].id + "'>");
+          let card = $("<div class='card'>");
           let cardContent =
             `
           <a href="/outfits/${outfits[i].id}">
