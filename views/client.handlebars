@@ -22,15 +22,12 @@
 </div>
 
 <script>
-  $("form").on("submit", function (event) {
-    event.preventDefault();
-    let $category = $("#category").val();
-    let $price = $("#price").val();
+  function getOutfits(category, price){
     $.get(
       "/api/search/?" +
       $.param({
-        category: $category,
-        price: $price
+        category: category,
+        price: price
       }), function (outfits) {
         $(".results").empty();
         $(".results").append("<hr>");
@@ -57,5 +54,25 @@
         }
       }
     );
+  }
+
+  $("form").on("submit", function (event) {
+    event.preventDefault();
+    let $category = $("#category");
+    let $price = $("#price");
+
+    let searchCategory = $category.val();
+    let searchPrice = parseFloat($("#price").val());
+
+    if ($price.val() === "") {
+      searchPrice = 99999;
+      getOutfits(searchCategory, searchPrice);
+    } else if(isNaN(searchPrice) || searchPrice < 0){
+      alert("Please enter a valid 'Price'.");
+    } else {
+      getOutfits(searchCategory, searchPrice);
+    }
+
+
   });
 </script>
