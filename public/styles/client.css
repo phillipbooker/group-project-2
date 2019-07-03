@@ -5,7 +5,7 @@
   -o-animation: fadein 2s; /* Opera < 12.1 */
   animation: fadein 2s;
   min-width: 15rem;
-  max-width: 15rem;
+  max-width: 28rem;
   margin: 10px;
 }
 
