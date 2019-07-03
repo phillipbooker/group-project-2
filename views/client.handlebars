@@ -1,39 +1,60 @@
-<a href="/" class="btn">Home</a>
-<form>
-  <div class="form-group">
-    <label for="category">Choose outfit category</label>
-    <select class="form-control" id="category">
-      <option>Wedding</option>
-      <option>Office</option>
-      <option>Graduation</option>
-    </select>
-  </div>
-  <div class="form-group">
-    <label for="price">Price Limit</label>
-    <input type="text" class="form-control" id="price" placeholder="Price Limit">
-  </div>
+<div class="container">
+  <a href="/"><button class="btn btn-primary mt-2">Home</button></a>
+  <form>
+    <div class="form-group">
+      <label for="category">Choose outfit category</label>
+      <select class="form-control" id="category">
+        <option>Wedding</option>
+        <option>Office</option>
+        <option>Graduation</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="price">Price Limit</label>
+      <input type="text" class="form-control" id="price" placeholder="Price Limit">
+    </div>
 
 
-  <button type="submit" class="btn btn-primary">Search for outfit</button>
-</form>
+    <button type="submit" class="btn btn-primary">Search for outfit</button>
+  </form>
 
-<div class="search-dump"></div>
+  <div class="results mt-2"></div>
+</div>
 
 <script>
   $("form").on("submit", function (event) {
     event.preventDefault();
     let $category = $("#category").val();
     let $price = $("#price").val();
-    console.log($category);
-    console.log($price);
     $.get(
       "/api/search/?" +
       $.param({
         category: $category,
         price: $price
-      }), function (data) {
-        console.log("data returned: " + JSON.stringify(data));
-        $(".search-dump").append(JSON.stringify(data));
+      }), function (outfits) {
+        $(".results").empty();
+        $(".results").append("<hr>");
+        let cardDeck = $("<div class='card-deck'>");
+        for (let i = 0; i < outfits.length; i++) {
+          let card = $("<div class='card' data-link='/outfits/?outfitId=" + outfits[i].id + "'>");
+          let cardContent =
+            `
+          <a href="/outfits/${outfits[i].id}">
+          <img class="card-img-top img-fuid" src=${outfits[i].image}>
+          </a>
+          <div class="card-body">
+            <a href="/outfits?outfitID=${outfits[i].id}">
+            <h5 class="card-title">Price: $${outfits[i].price}</h5>
+            </a>
+            <p class="card-text">Added by ${outfits[i].stylistName}</p>
+          </div>
+          
+        `;
+          $(".results").append(cardDeck.append(card.html(cardContent)));
+        }
+        if (outfits.length === 0) {
+          $(".results").append("No results found with those parameters.");
+        }
       }
     );
   });
