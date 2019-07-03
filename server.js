@@ -46,7 +46,7 @@ var syncOptions = { force: false };
 // clearing the `testdb`
 if (process.env.NODE_ENV === "test") {
   syncOptions.force = true;
-}
+}``
 
 // Routes
 require("./routes/authRoutes")(app);
