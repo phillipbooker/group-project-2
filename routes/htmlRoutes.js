@@ -56,6 +56,13 @@ module.exports = function(app) {
     });
   });
 
+  app.get("/outfits/:id", isAuthenticated, function(req, res) {
+    res.render("outfit", {
+      style: "client.css",
+      id: req.params.id
+    });
+  });
+
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
     res.render("404");
