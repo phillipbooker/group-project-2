@@ -47,14 +47,15 @@ html {
 
 .card button {
   flex: 1;
+  margin-left: 15rem;
 }
 
 .card a {
-  flex: 8;
+  flex: 12;
 }
 
 .card .card-body {
-  flex: 3;
+  flex: 5;
   display: flex;
   flex-direction: column;
 }
@@ -69,6 +70,15 @@ html {
 
 .card-body a {
   max-height: 2.5em;
+}
+
+@media screen and (min-width: 576px) {
+  .card {
+    max-width: 15rem;
+  }
+  .card button {
+    margin-left: 12rem;
+  }
 }
 
 @keyframes fadein {
@@ -559,11 +569,5 @@ footer ul li a:hover {
 
   .btn {
     size: 100%;
-  }
-}
-
-@media screen and (min-width: 576px) {
-  .card {
-    max-width: 15rem;
   }
 }
