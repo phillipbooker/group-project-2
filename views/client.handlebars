@@ -59,7 +59,7 @@
 
 
 {{!-- The Start of the Form Container --}}
-<div class="container" id="form">
+<div class="container mb-3" id="form">
   <form>
     <div class="form-group">
       <label for="category">Choose Outfit Category</label>
@@ -103,10 +103,11 @@
           <img class="card-img-top img-fluid" src=${outfits[i].image}>
           </a>
           <div class="card-body">
-            <a href="/outfits/${outfits[i].id}">
             <h5 class="card-title">Price: $${outfits[i].price}</h5>
-            </a>
             <p class="card-text">Added by ${outfits[i].stylistName}</p>
+            <a href="/outfits/${outfits[i].id}" class="btn btn-dark">
+            See Items
+            </a>
           </div>
           
         `;
