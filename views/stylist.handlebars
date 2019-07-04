@@ -98,15 +98,22 @@
 </div>
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
-      <ul>
+    <div class="col-md-12 d-flex">
+      <div class="card-deck my-3">
         {{#each items}}
-        <li data-id="{{this.id}}" class="list-group-item">
-          {{this.name}}
-          <button class="btn btn-danger float-right delete">ｘ</button>
-        </li>
+          <div class="card text-center" data-id="{{this.id}}">
+            <p>{{this.name}}</p>
+            <a href="{{this.purchase}}" target="_blank">
+              <img src="{{this.image}}" alt="item">
+            </a>
+            <div class="card-body">
+              <p>Price: ${{this.price}}</p>
+              <a href="{{this.purchase}}" target="_blank" class="btn btn-dark">Purchse</a>
+              <button class="btn btn-danger float-right delete">ｘ</button>
+            </div>
+          </div>
         {{/each}}
-      </ul>
+      </div>
     </div>
   </div>
 </div>
