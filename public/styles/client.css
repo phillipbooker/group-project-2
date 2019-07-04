@@ -103,8 +103,6 @@ h1 {
 .form-group {
   font-size: 2rem;
   font-weight: 200;
-  padding-top: 100px;
-  padding-bottom: 100px;
   font-family: "Questrial", sans-serif;
 }
 /* Roman's Integrated CSS */
@@ -259,18 +257,18 @@ footer ul li a:hover {
   padding-bottom: 20px;
 }
 
-.footer-top .fa {
+.footer .fa {
   font-size: 18px;
   color: #fff;
   padding-right: 10px;
 }
 
-.footer-top a {
+.footer a {
   color: white;
 }
 
-.footer-top .col-lg-2:hover .fa,
-.footer-top .col-lg-2:hover a {
+.footer .col-lg-2:hover .fa,
+.footer .col-lg-2:hover a {
   color: grey;
   text-decoration: none;
 }
