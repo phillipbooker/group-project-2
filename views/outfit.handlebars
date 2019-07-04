@@ -17,11 +17,12 @@
           `
           <a target="_blank" href="${items[i].purchase}">
           <img class="card-img-top img-fluid" src=${items[i].image}>
+          </a>
           <div class="card-body">
             <h5 class="card-title">${items[i].name}</h5>
             <p>Price: $${items[i].price}</p>
-          </div>
-          </a>
+            <a href="${items[i].purchase}" target="_blank" class="btn btn-dark">Purchase</a>
+          </div>    
         `;
         $(".results").append(cardDeck.append(card.html(cardContent)));
       }
