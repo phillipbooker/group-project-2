@@ -1,12 +1,71 @@
+{{!-- Dependencies --}}
+
+
+
+{{!-- The start of the Head Image --}}
+
+
+<div class="hero-image">
+
+
+
+
+
+  <header>
+
+    <h1>D <span class="flip">R</span> E S</h1>
+    <nav>
+
+
+  </header>
+</div>
+<div class="hero-text">
+  <p>PERSONAL STYLING</p>
+
+  <h1 class="subtext">N E W &nbsp;&nbsp;&nbsp;L O O K S &nbsp;&nbsp;&nbsp; D A I L Y</h1>
+
+</div>
+<div class="container-fluid gallery">
+
+  <div class="row">
+
+    <div class="col-md-6"><img class="main_image__img"
+        src="https://66.media.tumblr.com/c7513cdd6c5d1cd458d7c749b4621ad8/tumblr_oa7m0wTCiw1s6wzx0o1_1280.jpg"
+        data-pc-src="https://66.media.tumblr.com/c7513cdd6c5d1cd458d7c749b4621ad8/tumblr_oa7m0wTCiw1s6wzx0o1_1280.jpg"
+        data-mobile-src="https://66.media.tumblr.com/c7513cdd6c5d1cd458d7c749b4621ad8/tumblr_oa7m0wTCiw1s6wzx0o1_1280.jpg"
+        style="width: 100%; height: 100%;"></div>
+
+
+
+    <div class="col-md-6"><img class="main_image__img"
+        src="https://66.media.tumblr.com/496c5267ae657773d47fed8fba46a18e/tumblr_nxzxm7rO0z1ucaz95o1_1280.jpg"
+        data-pc-src="http://annstreetstudio.com/wp-content/uploads/2013/08/615rain.gif"
+        data-mobile-src="http://annstreetstudio.com/wp-content/uploads/2013/08/615rain.gif"
+        style="width: 100%; height: 50%;"><img class="main_image__img"
+        src="https://66.media.tumblr.com/b48d3ca6e1f8ae6d92867d3dff6c8233/tumblr_n1keobyuXe1sqjlogo1_1280.jpg"
+        data-pc-src="http://annstreetstudio.com/wp-content/uploads/2013/08/615rain.gif"
+        data-mobile-src="http://annstreetstudio.com/wp-content/uploads/2013/08/615rain.gif"
+        style="width: 100%; height: 50%;"></div>
+
+
+
+
+  </div>
+</div>
+
+
+
+
+
+{{!-- The Start of the Form Container --}}
 <div class="container">
-  <a href="/"><button class="btn btn-primary mt-2">Home</button></a>
   <form>
     <div class="form-group">
-      <label for="category">Choose outfit category</label>
+      <label for="category">Choose Outfit Category</label>
       <select class="form-control" id="category">
-        <option value="wedding">wedding</option>
-        <option value="office">office</option>
-        <option value="graudation">graduation</option>
+        <option value="wedding">Wedding</option>
+        <option value="office">Office</option>
+        <option value="graudation">Graduation</option>
       </select>
     </div>
     <div class="form-group">
@@ -15,14 +74,14 @@
     </div>
 
 
-    <button type="submit" class="btn btn-primary">Search for outfit</button>
+    <button type="submit" class="btn-dark">Search for outfit</button>
   </form>
 
   <div class="results mt-2"></div>
 </div>
 
 <script>
-  function getOutfits(category, price){
+  function getOutfits(category, price) {
     $.get(
       "/api/search/?" +
       $.param({
@@ -67,7 +126,7 @@
     if ($price.val() === "") {
       searchPrice = 99999;
       getOutfits(searchCategory, searchPrice);
-    } else if(isNaN(searchPrice) || searchPrice < 0){
+    } else if (isNaN(searchPrice) || searchPrice < 0) {
       alert("Please enter a valid 'Price'.");
     } else {
       getOutfits(searchCategory, searchPrice);
@@ -76,3 +135,49 @@
 
   });
 </script>
+
+{{!-- The Footer Begins Here --}}
+<footer>
+  <div class="footer-top">
+    <div class="container">
+      <ul class="menu">
+
+        <li>
+          <a href="/">D <span class="flip">R</span> E S</a>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+  </div>
+
+  <div class="container" style="border-top:1px solid grey;">
+    <div class="row text-center">
+      <div class="col-lg-12">
+        <ul class="menu">
+
+
+
+
+          <li>
+            <a href=""/"">Top </a> </li> <li>
+              <a href="/auth/logout">LogOut</a>
+          </li>
+
+          <li>
+            <a href="#">Blog</a>
+          </li>
+
+          <li>
+            <a href="#">Gallery</a>
+          </li>
+
+          <li>
+            <a href="#">Contact</a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
