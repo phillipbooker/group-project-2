@@ -101,6 +101,10 @@ h1 {
 }
 /* CSS for the Client Form Font */
 .form-group {
+  font-size: 2rem;
+  font-weight: 200;
+  padding-top: 100px;
+  padding-bottom: 100px;
   font-family: "Questrial", sans-serif;
 }
 /* Roman's Integrated CSS */
