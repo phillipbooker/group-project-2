@@ -16,7 +16,9 @@
 
     <h1 class="subtext">MAKE YOUR MARK</h1>
 
-    <a href="#form"><h3 class="mt-3 text-white">STYLE OUTFIT</h3></a>
+    <a href="#form">
+      <h3 class="mt-3 text-white">STYLE OUTFIT</h3>
+    </a>
   </div>
   <img class="main_image__img" src="http://annstreetstudio.com/wp-content/uploads/2013/08/615rain.gif"
     data-pc-src="http://annstreetstudio.com/wp-content/uploads/2013/08/615rain.gif"
@@ -103,24 +105,20 @@
 
 </div>
 <div class="container">
-  <div class="row">
-    <div class="col-md-12 d-flex">
-      <div class="card-deck my-3">
-        {{#each items}}
-          <div class="card text-center" data-id="{{this.id}}">
-            <p>{{this.name}}</p>
-            <a href="{{this.purchase}}" target="_blank">
-              <img src="{{this.image}}" alt="item">
-            </a>
-            <div class="card-body">
-              <p>Price: ${{this.price}}</p>
-              <a href="{{this.purchase}}" target="_blank" class="btn btn-dark">Purchse</a>
-              <button data-id="{{this.id}}" class="btn btn-danger float-right delete">ｘ</button>
-            </div>
-          </div>
-        {{/each}}
+  <div class="card-deck my-3">
+    {{#each items}}
+    <div class="card" data-id="{{this.id}}">
+      <button data-id="{{this.id}}" class="btn btn-danger float-right delete mb-2">ｘ</button>
+      <a href="{{this.purchase}}" target="_blank">
+        <img class="card-img-top" src="{{this.image}}" alt="item">
+      </a>
+      <div class="card-body">
+        <h5 class="card-title">{{this.name}}</h5>
+        <p>Price: ${{this.price}}</p>
+        <a href="{{this.purchase}}" target="_blank" class="btn btn-dark">Purchase</a>
       </div>
     </div>
+    {{/each}}
   </div>
 </div>
 {{!-- <a href="/"><img src="/public/images/home.svg" class="btn">Home</a>|
