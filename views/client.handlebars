@@ -24,6 +24,7 @@
 
   <h1 class="subtext">NEW LOOKS DAILY</h1>
 
+  <a href="#form"><h3 class="mt-3 text-white">GET STARTED</h3></a>
 </div>
 <div class="container-fluid gallery">
 
@@ -58,7 +59,7 @@
 
 
 {{!-- The Start of the Form Container --}}
-<div class="container">
+<div class="container" id="form">
   <form>
     <div class="form-group">
       <label for="category">Choose Outfit Category</label>
@@ -135,6 +136,26 @@
       getOutfits(searchCategory, searchPrice);
     }
 
+
+  });
+
+  $("a[href^='#']").on('click', function(e) {
+
+    // prevent default anchor click behavior
+    e.preventDefault();
+
+    // store hash
+    var hash = this.hash;
+
+    // animate
+    $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 1000, function(){
+
+        // when done, add hash to url
+        // (default click behaviour)
+        window.location.hash = hash;
+      });
 
   });
 </script>
