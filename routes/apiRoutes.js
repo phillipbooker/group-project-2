@@ -59,6 +59,13 @@ module.exports = function(app) {
     });
   });
 
+  // Delete an item
+  app.delete("/api/item", function(req, res) {
+    db.Item.destroy({ where: { id: req.body.id } }).then(function(dbItem) {
+      res.json(dbItem);
+    });
+  });
+
   app.get("/api/search", function(req, res) {
     const Op = Sequelize.Op;
     db.Outfit.findAll({

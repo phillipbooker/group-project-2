@@ -10,6 +10,8 @@ var $itemImage = $("#iImage");
 var $itemPrice = $("#iPrice");
 var $itemPurchase = $("#iPurchase");
 
+var $deleteButton = $(".delete");
+
 var outfitId = $outfitBtn.attr("data-id");
 
 // The API object contains methods for each kind of request we'll make
@@ -30,6 +32,16 @@ var API = {
         "Content-Type": "application/json"
       },
       type: "POST",
+      url: "/api/item",
+      data: JSON.stringify(item)
+    });
+  },
+  deleteItem: function(item) {
+    return $.ajax({
+      headers: {
+        "Content-Type": "application/json"
+      },
+      type: "DELETE",
       url: "/api/item",
       data: JSON.stringify(item)
     });
@@ -100,4 +112,19 @@ $itemBtn.on("click", function(e) {
       location.reload();
     });
   }
+});
+
+$deleteButton.on("click", function(e) {
+  e.preventDefault();
+
+  var deleteId = $(this).attr("data-id");
+  console.log(deleteId);
+
+  var toDelete = {
+    id: deleteId
+  };
+
+  API.deleteItem(toDelete).then(function() {
+    location.reload();
+  });
 });
