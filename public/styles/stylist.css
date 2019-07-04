@@ -41,6 +41,34 @@ html {
   min-width: 15rem;
   max-width: 28rem;
   margin: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.card button {
+  flex: 1;
+}
+
+.card a {
+  flex: 8;
+}
+
+.card .card-body {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+}
+
+.card .card-body > * {
+  flex: 1;
+}
+
+.card-body a {
+  justify-content: flex-end;
+}
+
+.card-body a {
+  max-height: 2.5em;
 }
 
 @keyframes fadein {
