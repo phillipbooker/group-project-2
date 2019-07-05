@@ -68,11 +68,20 @@ module.exports = function(app) {
 
   app.get("/api/search", function(req, res) {
     const Op = Sequelize.Op;
-    db.Outfit.findAll({
-      where: {
+    let conditions;
+    if (req.query.category === "all-categories") {
+      conditions = {
+        price: { [Op.lte]: req.query.price }
+      };
+    } else {
+      conditions = {
         category: req.query.category,
         price: { [Op.lte]: req.query.price }
-      }
+      };
+    }
+
+    db.Outfit.findAll({
+      where: conditions
     }).then(results => {
       res.json(results);
     });
