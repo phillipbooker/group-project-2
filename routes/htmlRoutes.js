@@ -7,6 +7,12 @@ module.exports = function(app) {
     });
   });
 
+  app.get("/about", function(req, res) {
+    res.render("about", {
+      style: "about.css"
+    });
+  });
+
   app.get("/role", isAuthenticated, function(req, res) {
     res.render("role", {
       style: "role.css",
