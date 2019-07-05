@@ -24,7 +24,9 @@
 
   <h1 class="subtext">NEW LOOKS DAILY</h1>
 
-  <a href="#form"><h3 class="mt-3 text-white">GET STARTED</h3></a>
+  <a href="#form">
+    <h3 class="mt-3 text-white">GET STARTED</h3>
+  </a>
 </div>
 <div class="container-fluid gallery">
 
@@ -75,7 +77,8 @@
     </div>
     <div class="form-group my-3">
       <label for="price">Price Limit</label>
-      <input type="text" class="form-control" id="price" placeholder="Price Limit">
+      <input type="number" min="0" step="0.01" data-number-to-fixed="2" data-number-stepfactor="100"
+        class="form-control" id="price" autocomplete="off" value="1000.00"/>
     </div>
 
 
@@ -141,7 +144,7 @@
 
   });
 
-  $("a[href^='#']").on('click', function(e) {
+  $("a[href^='#']").on('click', function (e) {
 
     // prevent default anchor click behavior
     e.preventDefault();
@@ -151,13 +154,13 @@
 
     // animate
     $('html, body').animate({
-        scrollTop: $(hash).offset().top
-      }, 1000, function(){
+      scrollTop: $(hash).offset().top
+    }, 1000, function () {
 
-        // when done, add hash to url
-        // (default click behaviour)
-        window.location.hash = hash;
-      });
+      // when done, add hash to url
+      // (default click behaviour)
+      window.location.hash = hash;
+    });
 
   });
 </script>

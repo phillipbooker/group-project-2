@@ -18,11 +18,11 @@ var API = {
 
 $stylistBtn.on("click", function() {
   // create outfit using db
-  // defaults to wedding since it is the first option in the dropdown
+  // defaults to interview since it is the first option in the dropdown
   var outfit = {
     stylistId: userId,
     stylistName: gname,
-    category: "wedding"
+    category: "interview"
   };
 
   API.makeOutfit(outfit).then(function(newFit) {

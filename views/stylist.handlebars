@@ -57,7 +57,7 @@
   <p class="stylist-name">{{outfit.stylistName}}</p>
 </div>
 <div class="container" id="outfit-box">
-  <form action="">
+  <form action="" autocomplete="off">
     <div class="form-group">
       <label for="oCategory">Choose Outfit Category</label>
       <select class="form-control" id="oCategory">
@@ -71,11 +71,12 @@
     </div>
     <div class="form-group">
       <label for="oImage">Outfit Image Link</label>
-      <input type="text" class="form-control" id="oImage" placeholder="Outfit Image Link" value={{outfit.image}}>
+      <input type="text" class="form-control" id="oImage" autocomplete="off" placeholder="Outfit Image Link" value={{outfit.image}}>
     </div>
     <div class="form-group">
       <label for="oPrice">Outfit Total Price</label>
-      <input type="text" class="form-control" id="oPrice" placeholder="Outfit Total Price" value={{outfit.price}}>
+      <input type="number" min="0" step="0.01" data-number-to-fixed="2" data-number-stepfactor="100"
+        class="form-control" id="oPrice" value={{outfit.price}} autocomplete="off" placeholder="Outfit Total Price"/>
     </div>
     <button data-id={{outfit.id}} type="submit" class="btn btn-dark" id="submit-outfit">Update Outfit</button>
   </form>
@@ -84,19 +85,20 @@
   <form>
     <div class="form-group">
       <label for="iName">Item Name</label>
-      <input type="text" class="form-control" id="iName" placeholder="Item Name">
+      <input type="text" class="form-control" id="iName" placeholder="Item Name" autocomplete="off">
     </div>
     <div class="form-group">
       <label for="iImage">Image Link</label>
-      <input type="text" class="form-control" id="iImage" placeholder="Image Link">
+      <input type="text" class="form-control" id="iImage" placeholder="Image Link" autocomplete="off">
     </div>
     <div class="form-group">
       <label for="iPrice">Item Price</label>
-      <input type="text" class="form-control" id="iPrice" placeholder="Item Price">
+      <input type="number" min="0" step="0.01" data-number-to-fixed="2" data-number-stepfactor="100"
+        class="form-control" id="iPrice" autocomplete="off" placeholder="Item Price"/>
     </div>
     <div class="form-group">
       <label for="iPurchase">Purchase Link</label>
-      <input type="text" class="form-control" id="iPurchase" placeholder="Purchase Link">
+      <input type="text" class="form-control" id="iPurchase" placeholder="Purchase Link" autocomplete="off">
     </div>
 
 
