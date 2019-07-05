@@ -1,3 +1,8 @@
+@font-face {
+  font-family: Raleway;
+  src: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/raleway);
+}
+
 body {
   font-family: Raleway;
   src: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/raleway);
@@ -6,28 +11,76 @@ body {
 }
 
 .btn {
-  /* Positioning and sizing */
-  display: block;
-  width: 200px;
-
-  /* Padding and margins */
-  margin-top: 20px;
-  margin-left: auto;
-  margin-right: auto;
-
-  /* Text styles */
-  text-decoration: none;
-  font-size: 1.5em;
-
-  /* Border styles */
-  border: 3px solid white;
-  border-radius: 20px;
-
+  border: 1px solid rgba(248, 248, 248, 0.5);
+  background: rgba(248, 248, 248, 0.1);
+  margin: 2px;
+  cursor: pointer;
+  /* position: relative; */
+  padding: 1.4rem 4.2rem;
+  /* padding-right: 3.1rem; */
+  font-size: 1.6rem;
   color: white;
-  font-family: Raleway;
-  src: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/raleway);
+  letter-spacing: 0.25rem;
+  text-transform: uppercase;
+  transition: all 600ms cubic-bezier(0.77, 0, 0.175, 1);
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
 
-  font-size: 30px;
+.btn:before,
+.btn:after {
+  content: "";
+  position: absolute;
+  transition: inherit;
+  z-index: -1;
+  color: rgba(248, 248, 248, 0.1);
+}
+
+.btn:hover {
+  color: rgba(248, 248, 248, 0.3);
+  transition-delay: 0.6s;
+}
+
+.btn:hover:before {
+  transition-delay: 0s;
+}
+
+.btn:hover:after {
+  background: var(--inv);
+  transition-delay: 0.4s;
+}
+
+/* From Middle */
+
+.from-middle:before {
+  top: 0;
+  left: 50%;
+  height: 100%;
+  width: 0;
+  border: 1px solid var(--inv);
+  border-left: 0;
+  border-right: 0;
+}
+
+.from-middle:after {
+  bottom: 0;
+  left: 0;
+  height: 0;
+  width: 100%;
+  background: var(--inv);
+}
+
+.from-middle:hover:before {
+  left: 0;
+  width: 100%;
+}
+
+.from-middle:hover:after {
+  top: 0;
+  height: 100%;
 }
 
 h1 {
@@ -43,10 +96,6 @@ h1 {
 .flip {
   display: inline-block;
   transform: rotateY(180deg);
-}
-
-.btn:hover {
-  color: black;
 }
 
 .jumbotron {
@@ -88,7 +137,7 @@ h1 {
   margin-bottom: 15px;
 }
 
-.card,
+.cardA,
 .front,
 .back,
 .card-photo {
@@ -101,7 +150,11 @@ h1 {
   backface-visibility: hidden;
 }
 
-.card {
+.card-back {
+  position: absolute;
+}
+
+.cardA {
   position: relative;
   transform-style: preserve-3d;
   transition: transform 1s, box-shadow 0.4s;
@@ -111,7 +164,7 @@ h1 {
 }
 
 .card-photo {
-  object-fit: none;
+  object-fit: fill;
   border-radius: 10px;
 }
 
@@ -121,10 +174,9 @@ h1 {
 }
 
 .back {
-  background-color: white;
   transform: rotateY(180deg);
   text-align: center;
-  color: darkgray;
+  color: black;
   border-radius: 10px;
   font-family: "Raleway", sans-serif;
   font-weight: 600;
@@ -132,7 +184,7 @@ h1 {
 
 .back p {
   margin: 0;
-  position: absolute;
+  position: relative;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -142,7 +194,7 @@ h1 {
   opacity: 0;
 }
 
-input:checked + .card {
+input:checked + .cardA {
   transform: rotateY(180deg);
 }
 
@@ -271,6 +323,7 @@ footer ul li a:hover {
 
   .btn {
     size: 100%;
+    padding: 10px;
   }
 }
 
@@ -286,6 +339,7 @@ footer ul li a:hover {
 
   .btn {
     size: 100%;
+    padding: 10px;
   }
 }
 
@@ -301,5 +355,6 @@ footer ul li a:hover {
 
   .btn {
     size: 100%;
+    padding: 10px;
   }
 }

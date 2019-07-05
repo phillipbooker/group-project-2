@@ -1,0 +1,283 @@
+body {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url("http://blog.edx.org/wp-content/uploads/2015/03/business_1_900x525.jpg");
+  background-position: center;
+  background-size: cover;
+  height: 1000%;
+}
+
+header {
+  position: fixed;
+  width: 100%;
+  text-align: center;
+  color: white;
+  transition: 0.4s;
+  font-family: Moderne Sans, sans-serif;
+  text-align: center;
+  font-size: 2rem;
+  width: 100%;
+  letter-spacing: 0.5rem;
+}
+
+header:hover {
+  background: rgba(255, 255, 255, 0.8);
+  color: #000;
+}
+
+/* cards */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h2,
+h3,
+h4 {
+  margin-top: 20px;
+  font-family: Moderne Sans, sans-serif;
+  text-align: center;
+}
+
+h4 {
+  margin-bottom: 60px;
+}
+
+#links {
+  font-size: 25px;
+  color: black;
+  cursor: pointer;
+}
+
+#links:hover {
+  color: grey;
+  text-decoration: none;
+}
+
+.input {
+  position: absolute;
+}
+
+.scene {
+  width: 1440px;
+  max-width: 100%;
+  min-height: 100vh;
+  margin: auto;
+  padding: 40px 30px;
+}
+
+.card-wrap {
+  display: block;
+  width: 300px;
+  max-width: 100%;
+  height: 350px;
+  margin: 0 auto;
+  margin-bottom: 15px;
+}
+
+.cardA,
+.front,
+.back,
+.card-photo {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+}
+
+.card-face {
+  position: absolute;
+  backface-visibility: hidden;
+  background-color: white;
+  cursor: pointer;
+}
+
+.card-back {
+  position: absolute;
+}
+
+.cardA {
+  position: relative;
+  transform-style: preserve-3d;
+  box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.302),
+    0 1px 3px 1px rgba(60, 64, 67, 0.149);
+  border-radius: 20px;
+  margin-top: 100px;
+}
+
+.card-photo {
+  border-radius: 20px;
+  object-fit: fill;
+}
+
+.card:hover {
+  box-shadow: 0 1px 3px 0 rgba(60, 64, 67, 0.302),
+    0 4px 8px 3px rgba(60, 64, 67, 0.149);
+}
+
+.back {
+  transform: rotateY(180deg);
+  text-align: center;
+  border-radius: 20px;
+  font-family: "Raleway", sans-serif;
+  font-weight: 600;
+}
+
+.back p {
+  margin: 0;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.flipcard {
+  opacity: 0;
+}
+
+input:checked + .cardA {
+  transform: rotateY(180deg);
+}
+
+@media screen and (min-width: 960px) {
+  .scene {
+    display: flex;
+    justify-content: space-around;
+  }
+}
+
+/* start of footer */
+
+footer {
+  background-color: black;
+  padding: 20px 0px;
+  font-family: Raleway;
+  src: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/raleway);
+}
+
+footer ul {
+  list-style: none;
+  margin: 0 auto;
+  display: inline-block;
+  padding-top: 30px;
+}
+
+footer ul li {
+  float: left;
+}
+
+footer ul li a {
+  color: white;
+  text-align: center;
+  word-spacing: 15px;
+  width: 100%;
+  padding: 30px;
+}
+
+footer ul li a:hover {
+  color: grey;
+  text-decoration: none;
+}
+
+.footer-top {
+  padding-bottom: 20px;
+}
+
+.footer-top .fa {
+  font-size: 18px;
+  color: #fff;
+  padding-right: 10px;
+}
+
+.footer-top a {
+  color: white;
+}
+
+.footer-top .col-lg-2:hover .fa,
+.footer-top .col-lg-2:hover a {
+  color: grey;
+  text-decoration: none;
+}
+
+#top {
+  color: #fff;
+  background: black;
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 40px;
+  height: 20px;
+  width: 40px;
+  right: 30px;
+  position: fixed;
+  border-radius: 3px;
+  text-align: center center;
+  bottom: 350px;
+}
+
+/* start of footer */
+
+footer {
+  background-color: black;
+  padding: 20px 0px;
+  font-family: Raleway;
+  src: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/raleway);
+}
+
+footer ul {
+  list-style: none;
+  margin: 0 auto;
+  display: inline-block;
+  padding-top: 30px;
+}
+
+footer ul li {
+  float: left;
+}
+
+footer ul li a {
+  color: white;
+  text-align: center;
+  word-spacing: 15px;
+  width: 100%;
+  padding: 30px;
+}
+
+footer ul li a:hover {
+  color: grey;
+  text-decoration: none;
+}
+
+.footer-top {
+  padding-bottom: 20px;
+}
+
+.footer-top .fa {
+  font-size: 18px;
+  color: #fff;
+  padding-right: 10px;
+}
+
+.footer-top a {
+  color: white;
+}
+
+.footer-top .col-lg-2:hover .fa,
+.footer-top .col-lg-2:hover a {
+  color: grey;
+  text-decoration: none;
+}
+
+#top {
+  color: #fff;
+  background: black;
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 40px;
+  height: 20px;
+  width: 40px;
+  right: 30px;
+  position: fixed;
+  border-radius: 3px;
+  text-align: center center;
+  bottom: 350px;
+}
