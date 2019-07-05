@@ -113,32 +113,27 @@ h1 {
   -o-animation: fadein 2s; /* Opera < 12.1 */
   animation: fadein 2s;
   min-width: 15rem;
-  max-width: 28rem;
+  max-width: 28rem; 
   margin: 10px;
   display: flex;
   flex-direction: column;
 }
 
 .card a {
-  flex: 12;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.card-img-top {
+  justify-content: center;
 }
 
 .card .card-body {
-  flex: 5;
-  display: flex;
+  flex: 0;
   flex-direction: column;
-}
-
-.card .card-body > * {
-  flex: 1;
-}
-
-.card-body a {
   justify-content: flex-end;
-}
-
-.card-body a {
-  max-height: 2.5em;
 }
 
 @media screen and (min-width: 576px) {
