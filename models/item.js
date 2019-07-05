@@ -10,7 +10,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.DECIMAL
     },
     image: {
-      type: DataTypes.STRING
+      type: DataTypes.TEXT
     },
     purchase: {
       type: DataTypes.STRING
