@@ -40,7 +40,8 @@ module.exports = function(app) {
           res.render("stylist", {
             style: "stylist.css",
             outfit: dbOutfit,
-            items: dbItems
+            items: dbItems,
+            firstName: req.user.gname.split(" ")[0]
           });
         });
       }
