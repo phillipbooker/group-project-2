@@ -39,7 +39,8 @@ module.exports = function(app) {
           res.render("stylist", {
             style: "stylist.css",
             outfit: dbOutfit,
-            items: dbItems
+            items: dbItems,
+            user: req.user
           });
         });
       }
