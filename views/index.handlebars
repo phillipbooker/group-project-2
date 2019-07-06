@@ -5,9 +5,27 @@
 
         {{!-- FLIPPED "R" IN DRES --}}
         <h1>D <span class="flip">R</span> E S</h1>
+
+        <a href="#stop">
+          <h3 class="btn" style="border:1px solid white; background-color: transparent;">LEARN
+            MORE
+          </h3>
+        </a>
         <a href="/role" class="btn" id="start" style="border:1px solid white; background-color: transparent;">Get
           Started</a>
       </div>
+    </div>
+  </div>
+</div>
+
+<div id="stop" style="color: white; visibility:hidden;">Stop here</div>
+
+<div id="features" class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <h2 style="color:black; text-align:center; font-size:25px;">
+        CLICK EACH PHOTO TO LEARN MORE
+      </h2>
     </div>
   </div>
 </div>
@@ -21,7 +39,11 @@
           class="card-photo">
       </div>
       <div class="back card-face">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+        <p id="top-text" style="color:white;">top</p>
+        <h4>Are you a Stylist?</h4>
+        <h4>Looking for inspiration?</h4>
+        <h4>Want to share your talent?</h4>
+        <h4>Yes? Scroll up and get started!</h4>
       </div>
     </div>
   </label>
@@ -33,7 +55,11 @@
           alt="" class="card-photo">
       </div>
       <div class="back card-face">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+        <p id="top-text" style="color:white;">top</p>
+        <h4>Important event coming up?</h4>
+        <h4>Needing fashion assistance?</h4>
+        <h4>Looking to dres to impress?</h4>
+        <h4>Yes? Scroll up and get started!</h4>
       </div>
     </div>
   </label>
@@ -45,12 +71,77 @@
           alt="" class="card-photo">
       </div>
       <div class="back card-face">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+        <p id="top-text" style="color:white;">top</p>
+        <h4>Need an outfit for a Wedding?</h4>
+        <h4>first date?</h4>
+        <h4>Music Festival?</h4>
+        <h4>Yes? Scroll up and get started!</h4>
       </div>
     </div>
   </label>
 </div>
 
+<div id="features" class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <h2 id="perks-title" style="color:black; text-align:center;">
+        PERKS
+      </h2>
+    </div>
+  </div>
+</div>
+
+<div id="perks-section" class="container">
+  <div class="row">
+    <div class="col-lg-4">
+      <img
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRloL1gpUyQe7YSzUFAELaDiCjBTDFdAXxfUeqzaGoHIQYYZJRyJg"
+        alt="shirt-icon" class="icons">
+      <h5 style="color:black; text-align:center;">
+        Free fashion advice from amazing stylists all over the world
+      </h5>
+    </div>
+    <div class="col-lg-4">
+      <img
+        src="data:image/png;base64,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"
+        alt="shirt-icon" class="icons">
+      <h5 style="color:black; text-align:center;">
+        free platform for stylists to share their talent and passion with the world
+      </h5>
+    </div>
+    <div class="col-lg-4">
+      <img
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGsgFEnvp3SWKZd91JyvgRB-SCLrq5RxQO-Tqt_EsW4HKTHUYaYw"
+        alt="shirt-icon" class="icons">
+      <h5 style="color:black; text-align:center;">
+        you control the price limit, while we provide the fresh new looks
+      </h5>
+    </div>
+  </div>
+</div>
+
+
+<script>
+  $("a[href^='#']").on('click', function (e) {
+
+    // prevent default anchor click behavior
+    e.preventDefault();
+
+    // store hash
+    var hash = this.hash;
+
+    // animate
+    $('html, body').animate({
+      scrollTop: $(hash).offset().top
+    }, 1000, function () {
+
+      // when done, add hash to url
+      // (default click behaviour)
+      window.location.hash = hash;
+    });
+
+  });
+</script>
 
 {{!-- footer --}}
 <footer>
