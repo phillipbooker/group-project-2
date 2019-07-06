@@ -30,7 +30,6 @@ module.exports = function(app) {
   // Get target outfit and items
   app.get("/stylist/:id", isAuthenticated, function(req, res) {
     var outfitId = req.params.id;
-
     db.Outfit.findOne({ where: { id: outfitId } }).then(function(dbOutfit) {
       if (!dbOutfit || req.user.id.toString() !== dbOutfit.stylistId) {
         res.redirect("/404");
@@ -48,24 +47,36 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/stylist", isAuthenticated, function(req, res) {
-    res.render("stylist", {
-      style: "stylist.css"
-    });
-  });
-
   app.get("/outfits/:id", isAuthenticated, function(req, res) {
-    res.render("outfit", {
-      style: "client.css",
-      id: req.params.id
+    db.Outfit.count({}).then(function(count) {
+      let outfitId = req.params.id;
+      if (
+        isNaN(outfitId) ||
+        !Number.isInteger(parseInt(outfitId)) ||
+        outfitId < 1 ||
+        outfitId > count
+      ) {
+        res.redirect("/404");
+      } else {
+        res.render("outfit", {
+          style: "outfit.css",
+          id: outfitId,
+          user: req.user
+        });
+      }
     });
   });
 
   app.get("/:id/outfits", isAuthenticated, function(req, res) {
-    res.render("user", {
-      style: "client.css",
-      id: req.params.id
-    });
+    if (req.user.id !== parseInt(req.params.id)) {
+      res.redirect("/404");
+    } else {
+      res.render("user", {
+        style: "outfit.css",
+        id: req.params.id,
+        user: req.user
+      });
+    }
   });
 
   // Render 404 page for any unmatched routes
