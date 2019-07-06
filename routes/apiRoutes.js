@@ -97,4 +97,14 @@ module.exports = function(app) {
       res.json(results);
     });
   });
+
+  app.get("/api/outfits/:id", function(req, res) {
+    db.Outfit.findAll({
+      where: {
+        stylistId: req.params.id
+      }
+    }).then(results => {
+      res.json(results);
+    });
+  });
 };
