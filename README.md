@@ -5,10 +5,11 @@
 [DRES Deployed Project](https://dresfit.herokuapp.com/)
 
 ### Members
-Phillip Booker
-Loren Brown
-Roman Senin
-Paige Smith
+
+- Phillip Booker
+- Loren Brown
+- Roman Senin
+- Paige Smith
 
 ## Project Description
 
