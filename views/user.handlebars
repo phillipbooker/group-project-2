@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="results"></div>
+</div>
+
+<script>
+  $(document).ready(function () {
+    $.get(
+      "/api/outfits/" + {{id}},
+      function (outfits) {
+      console.log(JSON.stringify(outfits));
+      let cardDeck = $("<div class='card-deck'>");
+      for (let i = 0; i < outfits.length; i++) {
+        let card = $("<div class='card'>");
+        let cardContent =
+          `
+          <img class="card-img-top img-fluid" src=${outfits[i].image}>
+          </a>
+          <div class="card-body">
+            <h5 class="card-title">${outfits[i].category}</h5>
+            <p>Price: $${outfits[i].price}</p>
+            <a href="/stylist/${outfits[i].id}" class="btn btn-dark">Edit</a>
+          </div>    
+        `;
+        $(".results").append(cardDeck.append(card.html(cardContent)));
+      }
+      if (outfits.length === 0) {
+        $(".results").append("No outfits have yet been specified for this outfit.");
+      }
+    }
+  );
+});
+</script>
