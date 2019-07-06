@@ -32,6 +32,42 @@ html {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.gif-header {
+  background: url("http://annstreetstudio.com/wp-content/uploads/2013/08/615rain.gif");
+  background-size: cover;
+  min-height: 800px;
+}
+
+.navbar {
+  background-color: transparent !important;
+}
+
+nav a {
+  text-decoration: none;
+}
+
+.navbar {
+  font-size: 18px;
+}
+
+.hide-desktop {
+  display: none;
+}
+
+@media screen and (max-width: 992px) {
+  .hide-desktop {
+    display: inline;
+  }
+  .dropdown {
+    display: none;
+  }
+  a.nav-link {
+    background: rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+  }
+}
+
 .card {
   -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
   -moz-animation: fadein 2s; /* Firefox < 16 */

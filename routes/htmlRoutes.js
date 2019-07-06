@@ -22,7 +22,8 @@ module.exports = function(app) {
 
   app.get("/client", isAuthenticated, function(req, res) {
     res.render("client", {
-      style: "client.css"
+      style: "client.css",
+      user: req.user
     });
   });
 
@@ -31,9 +32,7 @@ module.exports = function(app) {
     var outfitId = req.params.id;
 
     db.Outfit.findOne({ where: { id: outfitId } }).then(function(dbOutfit) {
-      console.log(req.user.id.toString());
-      console.log(dbOutfit.stylistId);
-      if (req.user.id.toString() !== dbOutfit.stylistId) {
+      if (!dbOutfit || req.user.id.toString() !== dbOutfit.stylistId) {
         res.redirect("/404");
       } else {
         db.Item.findAll({ where: { outfitId } }).then(function(dbItems) {
@@ -41,6 +40,7 @@ module.exports = function(app) {
             style: "stylist.css",
             outfit: dbOutfit,
             items: dbItems,
+            user: req.user,
             firstName: req.user.gname.split(" ")[0]
           });
         });

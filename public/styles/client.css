@@ -60,6 +60,36 @@ h1 {
   padding-left: 1px;
 }
 
+.navbar {
+  background-color: transparent !important;
+}
+
+nav a {
+  text-decoration: none;
+}
+
+.navbar {
+  font-size: 18px;
+}
+
+.hide-desktop {
+  display: none;
+}
+
+@media screen and (max-width: 992px) {
+  .hide-desktop {
+    display: inline;
+  }
+  .dropdown {
+    display: none;
+  }
+  a.nav-link {
+    background: rgba(0, 0, 0, 0.04);
+    display: flex;
+    justify-content: center;
+  }
+}
+
 /* The hero image */
 .hero-image {
   margin-bottom: 30px;
@@ -113,7 +143,7 @@ h1 {
   -o-animation: fadein 2s; /* Opera < 12.1 */
   animation: fadein 2s;
   min-width: 15rem;
-  max-width: 28rem; 
+  max-width: 28rem;
   margin: 10px;
   display: flex;
   flex-direction: column;
