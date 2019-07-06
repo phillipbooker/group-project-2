@@ -48,14 +48,9 @@ module.exports = function(app) {
   });
 
   app.get("/outfits/:id", isAuthenticated, function(req, res) {
-    db.Outfit.count({}).then(function(count) {
-      let outfitId = req.params.id;
-      if (
-        isNaN(outfitId) ||
-        !Number.isInteger(parseInt(outfitId)) ||
-        outfitId < 1 ||
-        outfitId > count
-      ) {
+    var outfitId = req.params.id;
+    db.Outfit.findOne({ where: { id: outfitId } }).then(function(dbOutfit) {
+      if (!dbOutfit) {
         res.redirect("/404");
       } else {
         res.render("outfit", {
