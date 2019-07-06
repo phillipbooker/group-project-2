@@ -12,12 +12,13 @@ body {
   margin: 0;
   background: #000;
   background-size: cover;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 video {
   position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
@@ -26,57 +27,36 @@ video {
   object-position: center;
 }
 
+.navbar {
+  background-color: transparent!important;
+}
+
+nav a {
+  text-decoration: none;  
+}
+
+.navbar {
+  font-size: 18px;
+}
+
+.hide-desktop {
+  display: none;
+}
+
 div#fashion {
-  min-height: 100vh;
+  flex: 1;
   display: flex;
   align-items: center;
-  justify-content: center;
-}
-
-header {
-  position: fixed;
-  width: 100%;
-  text-align: center;
-  color: white;
-  transition: 0.4s;
-}
-
-header:hover {
-  background: rgba(255, 255, 255, 0.8);
-  color: #000;
 }
 
 .flip {
   display: inline-block;
   transform: rotateY(180deg);
 }
-h1 {
-  font-family: Moderne Sans, sans-serif;
-  text-align: center;
-  font-size: 2rem;
-  width: 100%;
-  letter-spacing: 0.5rem;
-}
-
-nav a {
-  text-decoration: none;
-  color: inherit;
-  padding: 1rem;
-}
-
-h2 {
-  font-family: Century Schoolbook, Century Schoolbook L, Georgia, serif;
-  font-size: 8vmin;
-  text-align: center;
-  margin: 2rem 3rem 0;
-  mix-blend-mode: overlay;
-  color: #fff;
-  font-weight: 100;
-}
 
 /* The CSS for the CLIENT VS STYLIST BUTTON */
 
-.btn {
+#fashion .btn {
   border: 1px solid rgba(248, 248, 248, 0.5);
   background: rgba(248, 248, 248, 0.1);
   margin: 2px;
@@ -96,24 +76,24 @@ h2 {
   user-select: none;
 }
 
-.btn:before,
-.btn:after {
+#fashion .btn:before,
+#fashion .btn:after {
   content: "";
   position: absolute;
   transition: inherit;
   z-index: -1;
 }
 
-.btn:hover {
+#fashion .btn:hover {
   color: var(--def);
   transition-delay: 0.6s;
 }
 
-.btn:hover:before {
+#fashion .btn:hover:before {
   transition-delay: 0s;
 }
 
-.btn:hover:after {
+#fashion .btn:hover:after {
   background: var(--inv);
   transition-delay: 0.4s;
 }
@@ -148,8 +128,23 @@ h2 {
   height: 100%;
 }
 
-@media only screen and (max-width: 775px) {
-  .btn {
-    padding: 10px;
+@media only screen and (max-width: 992px) {
+  .hide-desktop {
+    display: inline;
+  }
+  .dropdown {
+    display: none;
+  }
+  a.nav-link {
+    background: rgba(0, 0, 0, 0.04);
+    display: flex;
+    justify-content: center;
+  }
+  #buttons {
+    display: flex;
+    flex-direction: column;
+  }
+  #buttons .btn {
+    margin: 10px;
   }
 }
