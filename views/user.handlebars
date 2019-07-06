@@ -35,34 +35,14 @@
 <script>
   // The API object contains methods for each kind of request we'll make
   var API = {
-    updateOutfit: function (outfit) {
-      return $.ajax({
-        headers: {
-          "Content-Type": "application/json"
-        },
-        type: "PUT",
-        url: "/api/outfit",
-        data: JSON.stringify(outfit)
-      });
-    },
-    makeItem: function (item) {
-      return $.ajax({
-        headers: {
-          "Content-Type": "application/json"
-        },
-        type: "POST",
-        url: "/api/item",
-        data: JSON.stringify(item)
-      });
-    },
-    deleteItem: function (item) {
+    deleteItem: function (outfit) {
       return $.ajax({
         headers: {
           "Content-Type": "application/json"
         },
         type: "DELETE",
-        url: "/api/item",
-        data: JSON.stringify(item)
+        url: "/api/outfit",
+        data: JSON.stringify(outfit)
       });
     }
   };

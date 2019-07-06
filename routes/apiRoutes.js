@@ -66,6 +66,13 @@ module.exports = function(app) {
     });
   });
 
+  // Delete an outfit
+  app.delete("/api/outfit", function(req, res) {
+    db.Outfit.destroy({ where: { id: req.body.id } }).then(function(dbItem) {
+      res.json(dbItem);
+    });
+  });
+
   app.get("/api/search", function(req, res) {
     const Op = Sequelize.Op;
     let conditions;
