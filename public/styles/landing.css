@@ -371,6 +371,16 @@ footer ul li a:hover {
   .btn {
     padding: 10px;
   }
+
+  h5 {
+    margin-bottom: 40px;
+    margin-top: 20px;
+  }
+
+  #perks-title {
+    margin-top: 30px;
+    margin-bottom: 10px;
+  }
 }
 
 @media only screen and (max-width: 750px) {
@@ -386,6 +396,16 @@ footer ul li a:hover {
   .btn {
     padding: 10px;
   }
+
+  h5 {
+    margin-bottom: 40px;
+    margin-top: 20px;
+  }
+
+  #perks-title {
+    margin-top: 30px;
+    margin-bottom: 10px;
+  }
 }
 
 @media only screen and (max-width: 650px) {
@@ -400,5 +420,15 @@ footer ul li a:hover {
 
   .btn {
     padding: 10px;
+  }
+
+  h5 {
+    margin-bottom: 40px;
+    margin-top: 20px;
+  }
+
+  #perks-title {
+    margin-top: 30px;
+    margin-bottom: 10px;
   }
 }
