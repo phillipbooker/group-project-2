@@ -90,6 +90,7 @@ h1 {
   src: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/raleway);
   color: white;
   position: center;
+  text-transform: uppercase;
 }
 
 /* Loren use this for the "R" being flipped */
@@ -108,6 +109,26 @@ h1 {
   height: 100vh;
 }
 
+#features {
+  margin-top: 50px;
+  letter-spacing: 0.25rem;
+  text-transform: uppercase;
+}
+
+#top-text {
+  margin-top: 20%;
+  visibility: hidden;
+}
+
+h4 {
+  text-align: center;
+  font-size: 15px;
+  padding: 10px;
+  font-family: Raleway;
+  src: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/raleway);
+  text-transform: uppercase;
+}
+
 /* CARDS */
 
 * {
@@ -123,7 +144,7 @@ h1 {
 .scene {
   width: 1440px;
   max-width: 100%;
-  min-height: 100vh;
+  min-height: 100%;
   margin: auto;
   padding: 40px 30px;
 }
@@ -203,6 +224,32 @@ input:checked + .cardA {
     display: flex;
     justify-content: space-around;
   }
+}
+
+/* PERKS section */
+
+#perks-title {
+  margin-top: 70px;
+  margin-bottom: 60px;
+}
+
+.icons {
+  width: 60px;
+  height: 60px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+}
+
+h5 {
+  text-align: center;
+  font-size: 15px;
+  font-family: Raleway;
+  src: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/raleway);
+  text-transform: uppercase;
+  margin-bottom: 300px;
+  margin-top: 40px;
 }
 
 /* start of footer */
@@ -322,7 +369,6 @@ footer ul li a:hover {
   }
 
   .btn {
-    size: 100%;
     padding: 10px;
   }
 }
@@ -338,7 +384,6 @@ footer ul li a:hover {
   }
 
   .btn {
-    size: 100%;
     padding: 10px;
   }
 }
@@ -354,7 +399,6 @@ footer ul li a:hover {
   }
 
   .btn {
-    size: 100%;
     padding: 10px;
   }
 }
